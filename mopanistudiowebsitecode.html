@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA Studio | Design Process & Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for sleek icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        studio: {
+                            50: '#f9f9fb',
+                            100: '#f0f0f4',
+                            200: '#e1e1e8',
+                            300: '#ceced9',
+                            800: '#22222a',
+                            900: '#131317',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-studio-50 text-studio-900 flex flex-col min-h-screen selection:bg-studio-800 selection:text-white">
+
+    <header class="sticky top-0 z-40 bg-studio-50/90 backdrop-blur-md border-b border-studio-200/60 transition-all">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="#" onclick="switchTab('home'); return false;" class="text-xl font-medium tracking-tight hover:opacity-75 transition-opacity flex items-center gap-2">
+                <span class="w-3 h-3 bg-studio-900 rounded-full inline-block"></span>
+                <span>AURA</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-studio-800">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-btn hover:text-black transition-colors relative py-1 active-nav">Home</button>
+                <button onclick="switchTab('process')" id="nav-process" class="nav-btn hover:text-black transition-colors relative py-1 text-gray-500">Design Process</button>
+                <button onclick="switchTab('blog')" id="nav-blog" class="nav-btn hover:text-black transition-colors relative py-1 text-gray-500">Blog</button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="nav-btn hover:text-black transition-colors relative py-1 text-gray-500">Contact</button>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-3">
+                <button onclick="toggleModal('google-sites-modal')" class="px-3.5 py-1.5 text-xs font-medium border border-studio-300 rounded-full hover:bg-studio-900 hover:text-white hover:border-studio-900 transition-all flex items-center gap-1.5">
+                    <i class="fa-brands fa-google text-xs"></i> Google Sites Setup Guide
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-studio-900 focus:outline-none p-1">
+                <i id="menu-icon" class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-studio-200 bg-studio-50 px-6 py-4 space-y-3">
+            <button onclick="switchTab('home'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-studio-900">Home</button>
+            <button onclick="switchTab('process'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-studio-900">Design Process</button>
+            <button onclick="switchTab('blog'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-studio-900">Blog</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu()" class="block w-full text-left py-2 font-medium text-studio-900">Contact</button>
+            <div class="pt-2 border-t border-studio-200">
+                <button onclick="toggleModal('google-sites-modal'); toggleMobileMenu()" class="w-full text-center px-4 py-2 text-xs font-medium border border-studio-300 rounded-full hover:bg-studio-900 hover:text-white transition-all">
+                    Google Sites Setup Guide
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- SECTION 1: HOMEPAGE -->
+        <section id="tab-home" class="tab-content transition-opacity duration-300">
+            <!-- Hero -->
+            <div class="max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
+                <span class="inline-block px-3 py-1 mb-6 text-xs font-medium tracking-wider text-studio-800 uppercase bg-studio-100 rounded-full border border-studio-200">Minimal Digital Studio</span>
+                <h1 class="text-4xl md:text-6xl font-light tracking-tight text-studio-900 mb-6 leading-tight">
+                    Simplicity in form.<br/><span class="font-normal italic">Clarity in experience.</span>
+                </h1>
+                <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                    We craft purposeful digital identities and intuitive interface structures. Designed with whitespace, functional aesthetics, and strategic intent.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <button onclick="switchTab('process')" class="px-6 py-3 bg-studio-900 text-white text-sm font-medium rounded-full hover:bg-black transition-all shadow-sm flex items-center gap-2">
+                        Explore Our Process <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                    <button onclick="switchTab('contact')" class="px-6 py-3 border border-studio-300 text-studio-900 text-sm font-medium rounded-full hover:border-studio-900 transition-all">
+                        Get in Touch
+                    </button>
+                </div>
+            </div>
+
+            <!-- About / Highlights Grid -->
+            <div class="max-w-6xl mx-auto px-6 py-16 border-t border-studio-200/60">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-8 bg-white border border-studio-200 rounded-2xl hover:border-studio-300 transition-all">
+                        <div class="w-10 h-10 rounded-full bg-studio-100 flex items-center justify-center mb-6 text-studio-900">
+                            <i class="fa-solid fa-shapes"></i>
+                        </div>
+                        <h3 class="text-lg font-medium mb-2">Essential Aesthetics</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Stripping away noisy distractions to highlight core brand value and seamless usability.</p>
+                    </div>
+
+                    <div class="p-8 bg-white border border-studio-200 rounded-2xl hover:border-studio-300 transition-all">
+                        <div class="w-10 h-10 rounded-full bg-studio-100 flex items-center justify-center mb-6 text-studio-900">
+                            <i class="fa-solid fa-compass-drafting"></i>
+                        </div>
+                        <h3 class="text-lg font-medium mb-2">Intentional Workflow</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">A structured 4-step framework ensuring transparent collaboration and fast execution.</p>
+                    </div>
+
+                    <div class="p-8 bg-white border border-studio-200 rounded-2xl hover:border-studio-300 transition-all">
+                        <div class="w-10 h-10 rounded-full bg-studio-100 flex items-center justify-center mb-6 text-studio-900">
+                            <i class="fa-solid fa-cube"></i>
+                        </div>
+                        <h3 class="text-lg font-medium mb-2">Google Sites Ready</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Clean layout patterns purposefully structured for effortless building on modern web tools.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Articles Snippet Banner -->
+            <div class="bg-studio-100/70 py-16 border-y border-studio-200">
+                <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h2 class="text-2xl font-normal mb-1">Latest Insights & Thought Pieces</h2>
+                        <p class="text-sm text-gray-500">Read our thoughts on design systems, typography, and site architecture.</p>
+                    </div>
+                    <button onclick="switchTab('blog')" class="px-5 py-2.5 bg-white border border-studio-300 text-xs font-medium rounded-full hover:bg-studio-900 hover:text-white transition-all whitespace-nowrap">
+                        View All Posts
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-process" class="tab-content hidden transition-opacity duration-300">
+            <div class="max-w-4xl mx-auto px-6 pt-16 pb-12 text-center">
+                <span class="inline-block px-3 py-1 mb-4 text-xs font-medium tracking-wider text-studio-800 uppercase bg-studio-100 rounded-full border border-studio-200">Our Methodology</span>
+                <h1 class="text-3xl md:text-5xl font-light text-studio-900 mb-4">The Design Process</h1>
+                <p class="text-gray-600 text-sm md:text-base max-w-xl mx-auto font-light">
+                    How we turn complex ideas into clean, functional digital products. Click any step to inspect deliverables and phase specifics.
+                </p>
+            </div>
+
+            <!-- Step Interactive Accordion / Cards -->
+            <div class="max-w-4xl mx-auto px-6 pb-20 space-y-4">
+                
+                <!-- Step 1 -->
+                <div class="process-card border border-studio-200 bg-white rounded-2xl overflow-hidden transition-all shadow-sm">
+                    <button onclick="toggleProcessStep(1)" class="w-full px-8 py-6 text-left flex items-center justify-between focus:outline-none">
+                        <div class="flex items-center gap-6">
+                            <span class="text-xl font-light text-gray-400">01</span>
+                            <div>
+                                <h3 class="text-lg font-medium text-studio-900">Discovery & Strategy</h3>
+                                <p class="text-xs text-gray-500 mt-0.5">Understanding goals, audience research & structure setup</p>
+                            </div>
+                        </div>
+                        <i id="process-icon-1" class="fa-solid fa-chevron-down text-sm text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="process-content-1" class="hidden px-8 pb-8 pt-2 border-t border-studio-100 text-sm text-gray-600 leading-relaxed">
+                        <p class="mb-4">We begin by conducting thorough research into your objectives, user needs, and content strategy. We map out site architecture and page hierarchies to ensure visual clarity before any design work starts.</p>
+                        <div class="bg-studio-50 p-4 rounded-xl border border-studio-200/80">
+                            <span class="font-medium text-xs text-studio-900 uppercase tracking-wider block mb-2">Key Deliverables:</span>
+                            <ul class="list-disc list-inside space-y-1 text-xs text-gray-500">
+                                <li>Information Architecture & Sitemap</li>
+                                <li>Content Outline & Copy Framework</li>
+                                <li>Competitor & Aesthetic Audit</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="process-card border border-studio-200 bg-white rounded-2xl overflow-hidden transition-all shadow-sm">
+                    <button onclick="toggleProcessStep(2)" class="w-full px-8 py-6 text-left flex items-center justify-between focus:outline-none">
+                        <div class="flex items-center gap-6">
+                            <span class="text-xl font-light text-gray-400">02</span>
+                            <div>
+                                <h3 class="text-lg font-medium text-studio-900">Wireframing & Layout</h3>
+                                <p class="text-xs text-gray-500 mt-0.5">Structural layouts and low-fidelity prototypes</p>
+                            </div>
+                        </div>
+                        <i id="process-icon-2" class="fa-solid fa-chevron-down text-sm text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="process-content-2" class="hidden px-8 pb-8 pt-2 border-t border-studio-100 text-sm text-gray-600 leading-relaxed">
+                        <p class="mb-4">Here, layout wireframes are designed to test user flows and spacing. We refine grid systems and typography hierarchies, prioritizing mobile responsiveness and readability.</p>
+                        <div class="bg-studio-50 p-4 rounded-xl border border-studio-200/80">
+                            <span class="font-medium text-xs text-studio-900 uppercase tracking-wider block mb-2">Key Deliverables:</span>
+                            <ul class="list-disc list-inside space-y-1 text-xs text-gray-500">
+                                <li>Interactive Mobile & Desktop Wireframes</li>
+                                <li>Layout Prototypes</li>
+                                <li>User Navigation Testing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="process-card border border-studio-200 bg-white rounded-2xl overflow-hidden transition-all shadow-sm">
+                    <button onclick="toggleProcessStep(3)" class="w-full px-8 py-6 text-left flex items-center justify-between focus:outline-none">
+                        <div class="flex items-center gap-6">
+                            <span class="text-xl font-light text-gray-400">03</span>
+                            <div>
+                                <h3 class="text-lg font-medium text-studio-900">Visual Refinement</h3>
+                                <p class="text-xs text-gray-500 mt-0.5">Color palette, typography, micro-interactions & details</p>
+                            </div>
+                        </div>
+                        <i id="process-icon-3" class="fa-solid fa-chevron-down text-sm text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="process-content-3" class="hidden px-8 pb-8 pt-2 border-t border-studio-100 text-sm text-gray-600 leading-relaxed">
+                        <p class="mb-4">We layer clean visual identity onto approved wireframes using refined typography, subtle shadows, consistent padding, and curated imagery or graphic elements.</p>
+                        <div class="bg-studio-50 p-4 rounded-xl border border-studio-200/80">
+                            <span class="font-medium text-xs text-studio-900 uppercase tracking-wider block mb-2">Key Deliverables:</span>
+                            <ul class="list-disc list-inside space-y-1 text-xs text-gray-500">
+                                <li>Design System & Token Specs</li>
+                                <li>High-Fidelity Component Styles</li>
+                                <li>Interactive States & Micro-animations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="process-card border border-studio-200 bg-white rounded-2xl overflow-hidden transition-all shadow-sm">
+                    <button onclick="toggleProcessStep(4)" class="w-full px-8 py-6 text-left flex items-center justify-between focus:outline-none">
+                        <div class="flex items-center gap-6">
+                            <span class="text-xl font-light text-gray-400">04</span>
+                            <div>
+                                <h3 class="text-lg font-medium text-studio-900">Launch & Handoff</h3>
+                                <p class="text-xs text-gray-500 mt-0.5">Platform integration, SEO settings & publishing</p>
+                            </div>
+                        </div>
+                        <i id="process-icon-4" class="fa-solid fa-chevron-down text-sm text-gray-400 transition-transform duration-300"></i>
+                    </button>
+                    <div id="process-content-4" class="hidden px-8 pb-8 pt-2 border-t border-studio-100 text-sm text-gray-600 leading-relaxed">
+                        <p class="mb-4">Final deployment to your chosen hosting or Google Sites platform. We review SEO metadata, optimize speed, and provide full editor documentation so you can manage your blog and pages easily.</p>
+                        <div class="bg-studio-50 p-4 rounded-xl border border-studio-200/80">
+                            <span class="font-medium text-xs text-studio-900 uppercase tracking-wider block mb-2">Key Deliverables:</span>
+                            <ul class="list-disc list-inside space-y-1 text-xs text-gray-500">
+                                <li>Live Site Deployment</li>
+                                <li>Content Management Documentation</li>
+                                <li>Domain & Analytics Configuration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="tab-blog" class="tab-content hidden transition-opacity duration-300">
+            <div class="max-w-6xl mx-auto px-6 pt-16 pb-10">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-8 border-b border-studio-200">
+                    <div>
+                        <span class="inline-block px-3 py-1 mb-3 text-xs font-medium tracking-wider text-studio-800 uppercase bg-studio-100 rounded-full border border-studio-200">Journal & Thoughts</span>
+                        <h1 class="text-3xl md:text-5xl font-light text-studio-900">Articles & Stories</h1>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <div class="relative">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                            <input type="text" id="blog-search" onkeyup="filterBlogs()" placeholder="Search articles..." class="pl-8 pr-4 py-2 bg-white border border-studio-300 rounded-full text-xs focus:outline-none focus:border-studio-900 w-48 transition-all">
+                        </div>
+                        <button onclick="toggleModal('create-post-modal')" class="px-4 py-2 bg-studio-900 text-white text-xs font-medium rounded-full hover:bg-black transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-plus text-xs"></i> Write Post
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blog Categories Tag Bar -->
+                <div class="flex items-center gap-2 mb-8 overflow-x-auto pb-2 scrollbar-none">
+                    <button onclick="filterCategory('all')" class="cat-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-studio-900 text-white transition-all">All</button>
+                    <button onclick="filterCategory('Design')" class="cat-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white border border-studio-200 text-gray-600 hover:border-studio-900 transition-all">Design</button>
+                    <button onclick="filterCategory('Process')" class="cat-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white border border-studio-200 text-gray-600 hover:border-studio-900 transition-all">Process</button>
+                    <button onclick="filterCategory('Web')" class="cat-filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-white border border-studio-200 text-gray-600 hover:border-studio-900 transition-all">Web</button>
+                </div>
+
+                <!-- Blog Cards Grid -->
+                <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
+                    <!-- Dynamic rendering done via JS -->
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-contact" class="tab-content hidden transition-opacity duration-300">
+            <div class="max-w-5xl mx-auto px-6 pt-16 pb-20">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                    
+                    <!-- Left: Info -->
+                    <div class="md:col-span-5 space-y-8">
+                        <div>
+                            <span class="inline-block px-3 py-1 mb-3 text-xs font-medium tracking-wider text-studio-800 uppercase bg-studio-100 rounded-full border border-studio-200">Connect</span>
+                            <h1 class="text-3xl md:text-4xl font-light text-studio-900 mb-4">Let's talk about your next project.</h1>
+                            <p class="text-sm text-gray-500 leading-relaxed font-light">
+                                Have a project in mind or interested in setting up a clean minimal website layout? Send us a line and we'll respond within 24 hours.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 pt-4 border-t border-studio-200">
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-gray-400 block mb-1">Direct Email</span>
+                                <a href="mailto:hello@aurastudio.design" class="text-sm font-medium hover:underline text-studio-900">hello@aurastudio.design</a>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-gray-400 block mb-1">Studio Location</span>
+                                <p class="text-sm text-gray-700">742 Creative Lane, Suite 100<br/>San Francisco, CA 94107</p>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-gray-400 block mb-1">Social Networks</span>
+                                <div class="flex items-center gap-4 pt-1">
+                                    <a href="#" class="text-gray-500 hover:text-studio-900 text-sm transition-colors"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="#" class="text-gray-500 hover:text-studio-900 text-sm transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                                    <a href="#" class="text-gray-500 hover:text-studio-900 text-sm transition-colors"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="#" class="text-gray-500 hover:text-studio-900 text-sm transition-colors"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Form -->
+                    <div class="md:col-span-7 bg-white p-8 md:p-10 border border-studio-200 rounded-3xl shadow-sm">
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                            <div>
+                                <label class="block text-xs font-medium uppercase tracking-wider text-studio-800 mb-2">Your Name *</label>
+                                <input type="text" required placeholder="Jane Doe" class="w-full px-4 py-3 bg-studio-50 border border-studio-200 rounded-xl text-sm focus:outline-none focus:border-studio-900 focus:bg-white transition-all">
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-xs font-medium uppercase tracking-wider text-studio-800 mb-2">Email Address *</label>
+                                    <input type="email" required placeholder="jane@example.com" class="w-full px-4 py-3 bg-studio-50 border border-studio-200 rounded-xl text-sm focus:outline-none focus:border-studio-900 focus:bg-white transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium uppercase tracking-wider text-studio-800 mb-2">Subject</label>
+                                    <input type="text" placeholder="Project Inquiry" class="w-full px-4 py-3 bg-studio-50 border border-studio-200 rounded-xl text-sm focus:outline-none focus:border-studio-900 focus:bg-white transition-all">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium uppercase tracking-wider text-studio-800 mb-2">Message *</label>
+                                <textarea required rows="4" placeholder="Tell us about your project details or goals..." class="w-full px-4 py-3 bg-studio-50 border border-studio-200 rounded-xl text-sm focus:outline-none focus:border-studio-900 focus:bg-white transition-all"></textarea>
+                            </div>
+
+                            <button type="submit" id="contact-submit-btn" class="w-full py-3.5 bg-studio-900 text-white text-xs font-medium uppercase tracking-wider rounded-xl hover:bg-black transition-all flex items-center justify-center gap-2">
+                                Send Message <i class="fa-regular fa-paper-plane text-xs"></i>
+                            </button>
+                        </form>
+
+                        <!-- Feedback Message -->
+                        <div id="contact-success-msg" class="hidden text-center py-10 space-y-3">
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-xl">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <h3 class="text-lg font-medium text-studio-900">Message Received</h3>
+                            <p class="text-sm text-gray-500 max-w-sm mx-auto">Thank you for reaching out! We have received your note and will get back to you shortly.</p>
+                            <button onclick="resetContactForm()" class="mt-4 px-4 py-2 border border-studio-300 text-xs font-medium rounded-full hover:border-studio-900">Send another message</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-studio-200 bg-white py-12 text-xs text-gray-500">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <span class="w-2.5 h-2.5 bg-studio-900 rounded-full"></span>
+                <span class="font-medium text-studio-900">AURA Studio</span>
+                <span>— Simplistic Web Design</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <button onclick="switchTab('home')" class="hover:text-studio-900">Home</button>
+                <button onclick="switchTab('process')" class="hover:text-studio-900">Design Process</button>
+                <button onclick="switchTab('blog')" class="hover:text-studio-900">Blog</button>
+                <button onclick="switchTab('contact')" class="hover:text-studio-900">Contact</button>
+            </div>
+            <div>
+                © <span id="year-span">2026</span> AURA Studio. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- 1. Google Sites How-To Guide Modal -->
+    <div id="google-sites-modal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white border border-studio-200 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl">
+            <div class="px-6 py-5 border-b border-studio-200 flex items-center justify-between bg-studio-50">
+                <div class="flex items-center gap-2">
+                    <i class="fa-brands fa-google text-studio-900 text-lg"></i>
+                    <h2 class="font-medium text-base text-studio-900">How to replicate this in Google Sites</h2>
+                </div>
+                <button onclick="toggleModal('google-sites-modal')" class="text-gray-400 hover:text-studio-900 p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto custom-scrollbar space-y-6 text-sm text-gray-600">
+                
+                <div class="bg-amber-50 border border-amber-200/80 rounded-2xl p-4 text-xs text-amber-900 leading-relaxed">
+                    <i class="fa-solid fa-lightbulb text-amber-600 mr-1"></i>
+                    <strong>Note:</strong> While AI assistants cannot directly construct pages inside your private Google account, you can mirror this layout on <strong>sites.google.com</strong> within minutes following the guide below!
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex gap-4">
+                        <span class="w-6 h-6 rounded-full bg-studio-900 text-white flex items-center justify-center text-xs font-medium shrink-0">1</span>
+                        <div>
+                            <h4 class="font-medium text-studio-900 text-sm">Create New Site & Choose Simple Theme</h4>
+                            <p class="text-xs text-gray-500 mt-1">Go to <a href="https://sites.google.com" target="_blank" class="underline text-studio-900">sites.google.com</a>, start a Blank site, and under the <strong>Themes</strong> tab select "Simple" or "Aristotle" with neutral font styles (e.g., Modern or Classic).</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <span class="w-6 h-6 rounded-full bg-studio-900 text-white flex items-center justify-center text-xs font-medium shrink-0">2</span>
+                        <div>
+                            <h4 class="font-medium text-studio-900 text-sm">Setup Pages Hierarchy</h4>
+                            <p class="text-xs text-gray-500 mt-1">Under the <strong>Pages</strong> tab on the right panel, add 4 pages: <code>Home</code>, <code>Design Process</code>, <code>Blog</code>, and <code>Contact</code>.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <span class="w-6 h-6 rounded-full bg-studio-900 text-white flex items-center justify-center text-xs font-medium shrink-0">3</span>
+                        <div>
+                            <h4 class="font-medium text-studio-900 text-sm">Add Sections & Collapsible Group (Process)</h4>
+                            <p class="text-xs text-gray-500 mt-1">For the Design Process section, drag in <strong>Collapsible Group</strong> widgets from the Insert panel to replicate the accordion steps (Discovery, Wireframing, Refinement, Launch).</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <span class="w-6 h-6 rounded-full bg-studio-900 text-white flex items-center justify-center text-xs font-medium shrink-0">4</span>
+                        <div>
+                            <h4 class="font-medium text-studio-900 text-sm">Embed HTML Component (Optional)</h4>
+                            <p class="text-xs text-gray-500 mt-1">You can embed custom interactive widgets or this entire clean page into Google Sites by clicking <strong>Insert &gt; Embed &gt; Embed Code</strong> and pasting code!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="px-6 py-4 border-t border-studio-200 bg-studio-50 text-right">
+                <button onclick="toggleModal('google-sites-modal')" class="px-5 py-2 bg-studio-900 text-white text-xs font-medium rounded-full hover:bg-black">Got It</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Read Blog Detail Modal -->
+    <div id="read-blog-modal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white border border-studio-200 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col shadow-2xl">
+            <div class="px-6 py-4 border-b border-studio-200 flex items-center justify-between">
+                <span id="read-blog-tag" class="px-3 py-1 bg-studio-100 text-studio-800 text-xs font-medium rounded-full">Category</span>
+                <button onclick="toggleModal('read-blog-modal')" class="text-gray-400 hover:text-studio-900 p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-8 overflow-y-auto custom-scrollbar space-y-4">
+                <div class="text-xs text-gray-400" id="read-blog-date">Oct 08, 2026 • 4 min read</div>
+                <h2 id="read-blog-title" class="text-2xl md:text-3xl font-light text-studio-900">Blog Title Here</h2>
+                <div id="read-blog-content" class="text-sm text-gray-600 leading-relaxed space-y-4 pt-4 border-t border-studio-100">
+                    <!-- Dynamic Body Content -->
+                </div>
+            </div>
+            <div class="px-6 py-4 border-t border-studio-200 bg-studio-50 flex items-center justify-between text-xs text-gray-500">
+                <span>Written by AURA Editorial Team</span>
+                <button onclick="toggleModal('read-blog-modal')" class="px-4 py-2 border border-studio-300 text-studio-900 rounded-full hover:border-studio-900">Close Reader</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Create New Blog Post Modal -->
+    <div id="create-post-modal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white border border-studio-200 rounded-3xl max-w-lg w-full overflow-hidden flex flex-col shadow-2xl">
+            <div class="px-6 py-4 border-b border-studio-200 flex items-center justify-between bg-studio-50">
+                <h3 class="font-medium text-sm text-studio-900">Draft New Article</h3>
+                <button onclick="toggleModal('create-post-modal')" class="text-gray-400 hover:text-studio-900 p-1">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <form onsubmit="handleCreateBlogPost(event)" class="p-6 space-y-4 text-xs">
+                <div>
+                    <label class="block font-medium uppercase tracking-wider text-gray-600 mb-1">Title *</label>
+                    <input type="text" id="new-post-title" required placeholder="e.g. Minimalist UI Patterns in 2026" class="w-full px-3 py-2 bg-studio-50 border border-studio-200 rounded-xl focus:outline-none focus:border-studio-900">
+                </div>
+                <div>
+                    <label class="block font-medium uppercase tracking-wider text-gray-600 mb-1">Category *</label>
+                    <select id="new-post-category" required class="w-full px-3 py-2 bg-studio-50 border border-studio-200 rounded-xl focus:outline-none focus:border-studio-900">
+                        <option value="Design">Design</option>
+                        <option value="Process">Process</option>
+                        <option value="Web">Web</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-medium uppercase tracking-wider text-gray-600 mb-1">Excerpt *</label>
+                    <input type="text" id="new-post-excerpt" required placeholder="Short 1-line summary for grid view" class="w-full px-3 py-2 bg-studio-50 border border-studio-200 rounded-xl focus:outline-none focus:border-studio-900">
+                </div>
+                <div>
+                    <label class="block font-medium uppercase tracking-wider text-gray-600 mb-1">Full Article Content *</label>
+                    <textarea id="new-post-body" rows="5" required placeholder="Write your full story here..." class="w-full px-3 py-2 bg-studio-50 border border-studio-200 rounded-xl focus:outline-none focus:border-studio-900"></textarea>
+                </div>
+                <div class="pt-2 flex justify-end gap-2">
+                    <button type="button" onclick="toggleModal('create-post-modal')" class="px-4 py-2 border border-studio-300 text-gray-600 rounded-full hover:border-studio-900">Cancel</button>
+                    <button type="submit" class="px-5 py-2 bg-studio-900 text-white rounded-full hover:bg-black">Publish Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Sample Initial Blog Data
+        let blogPosts = [
+            {
+                id: 1,
+                title: "The Art of Negative Space in Modern Web Layouts",
+                category: "Design",
+                date: "Oct 04, 2026",
+                readTime: "3 min read",
+                excerpt: "Why whitespace isn't empty space, but a powerful structural tool that drives cognitive ease.",
+                content: "Negative space, often referred to as whitespace, is one of the most underrated tools in contemporary website design. By giving typography and graphic elements room to breathe, we allow users to digest information naturally without cognitive overload.<br/><br/>When structuring minimalist sites like Google Sites or Webflow templates, prioritizing margin over clutter drastically increases readability and overall brand prestige."
+            },
+            {
+                id: 2,
+                title: "Structuring a Design Process That Clients Understand",
+                category: "Process",
+                date: "Sep 28, 2026",
+                readTime: "5 min read",
+                excerpt: "Demystifying complex UX workflows into digestible four-stage milestones.",
+                content: "Clients don't need complex design jargon—they need clarity on project milestones. By establishing distinct phases (Discovery, Wireframing, Visual Refinement, Launch), both stakeholders and designers stay aligned on expectations and timelines.<br/><br/>Clear communication reduces scope creep and establishes trust early in the agency lifecycle."
+            },
+            {
+                id: 3,
+                title: "Building Clean Sites with Minimal Frameworks",
+                category: "Web",
+                date: "Sep 15, 2026",
+                readTime: "4 min read",
+                excerpt: "How simple web platforms enable rapid deployment without sacrificing visual polish.",
+                content: "You don't always need complex stack setups for portfolio or informational sites. Lightweight tools like Google Sites, minimalist HTML CSS templates, or headless setups offer rapid iteration, zero maintenance overhead, and excellent core web vitals speed out of the box."
+            }
+        ];
+
+        let activeCategory = 'all';
+
+        // Initialize Page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderBlogGrid();
+            document.getElementById('year-span').textContent = new Date().getFullYear();
+        });
+
+        // Tab Navigation Functionality
+        function switchTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            
+            // Show selected tab content
+            const activeTab = document.getElementById(`tab-${tabId}`);
+            if(activeTab) {
+                activeTab.classList.remove('hidden');
+            }
+
+            // Update Header Nav active styles
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-black', 'font-semibold');
+                btn.classList.add('text-gray-500');
+            });
+            const selectedNavBtn = document.getElementById(`nav-${tabId}`);
+            if(selectedNavBtn) {
+                selectedNavBtn.classList.remove('text-gray-500');
+                selectedNavBtn.classList.add('text-black', 'font-semibold');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Process Accordion Handler
+        function toggleProcessStep(stepNum) {
+            const content = document.getElementById(`process-content-${stepNum}`);
+            const icon = document.getElementById(`process-icon-${stepNum}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Render Blog Posts
+        function renderBlogGrid() {
+            const grid = document.getElementById('blog-grid');
+            const searchVal = document.getElementById('blog-search')?.value.toLowerCase() || '';
+
+            const filtered = blogPosts.filter(post => {
+                const matchesCat = activeCategory === 'all' || post.category === activeCategory;
+                const matchesSearch = post.title.toLowerCase().includes(searchVal) || post.excerpt.toLowerCase().includes(searchVal);
+                return matchesCat && matchesSearch;
+            });
+
+            if(filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-gray-400 text-sm">
+                        No articles found matching your query.
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = filtered.map(post => `
+                <article class="bg-white border border-studio-200 rounded-2xl p-6 flex flex-col justify-between hover:border-studio-900 transition-all cursor-pointer group shadow-sm" onclick="openBlogReader(${post.id})">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-gray-400 mb-3">
+                            <span class="px-2.5 py-0.5 bg-studio-100 text-studio-800 rounded-full font-medium text-[10px] uppercase tracking-wider">${post.category}</span>
+                            <span>${post.date}</span>
+                        </div>
+                        <h3 class="text-base font-medium text-studio-900 group-hover:text-black mb-2 line-clamp-2 leading-snug">${post.title}</h3>
+                        <p class="text-xs text-gray-500 leading-relaxed line-clamp-3 mb-6">${post.excerpt}</p>
+                    </div>
+                    <div class="pt-4 border-t border-studio-100 flex items-center justify-between text-xs font-medium text-studio-900">
+                        <span>Read Story</span>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </article>
+            `).join('');
+        }
+
+        // Category Filter
+        function filterCategory(cat) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-filter-btn').forEach(btn => {
+                btn.classList.remove('bg-studio-900', 'text-white');
+                btn.classList.add('bg-white', 'border', 'border-studio-200', 'text-gray-600');
+            });
+            event.target.classList.remove('bg-white', 'border', 'border-studio-200', 'text-gray-600');
+            event.target.classList.add('bg-studio-900', 'text-white');
+            
+            renderBlogGrid();
+        }
+
+        function filterBlogs() {
+            renderBlogGrid();
+        }
+
+        // Modal Handler
+        function toggleModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if(modal) {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        // Open Reader Modal
+        function openBlogReader(postId) {
+            const post = blogPosts.find(p => p.id === postId);
+            if(!post) return;
+
+            document.getElementById('read-blog-title').textContent = post.title;
+            document.getElementById('read-blog-tag').textContent = post.category;
+            document.getElementById('read-blog-date').textContent = `${post.date} • ${post.readTime}`;
+            document.getElementById('read-blog-content').innerHTML = post.content;
+
+            toggleModal('read-blog-modal');
+        }
+
+        // Create Blog Post Handler
+        function handleCreateBlogPost(e) {
+            e.preventDefault();
+            const title = document.getElementById('new-post-title').value;
+            const category = document.getElementById('new-post-category').value;
+            const excerpt = document.getElementById('new-post-excerpt').value;
+            const content = document.getElementById('new-post-body').value;
+
+            const newPost = {
+                id: Date.now(),
+                title,
+                category,
+                date: "Just Now",
+                readTime: "2 min read",
+                excerpt,
+                content: content.replace(/\n/g, '<br/>')
+            };
+
+            blogPosts.unshift(newPost);
+            renderBlogGrid();
+            toggleModal('create-post-modal');
+            
+            // Reset form
+            e.target.reset();
+        }
+
+        // Contact Form Handling
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            document.getElementById('contact-form').classList.add('hidden');
+            document.getElementById('contact-success-msg').classList.remove('hidden');
+        }
+
+        function resetContactForm() {
+            document.getElementById('contact-form').reset();
+            document.getElementById('contact-form').classList.remove('hidden');
+            document.getElementById('contact-success-msg').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
