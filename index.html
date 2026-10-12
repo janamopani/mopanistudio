@@ -1,9 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
+    <!-- 1. Primary Technical Declarations -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mopani Studio | Micro-Greening & Urban Landscape Practice</title>
+
+    <!-- 2. SEO & Open Graph Metadata -->
+    <meta name="description" content="Mopani Studio is a premier urban greening practice serving the Whadjuk and Binjareb regions in WA. Personalized planting plans, soil preparation, nursery walks, and 12-month care to reach 30% canopy cover.">
+    <meta name="keywords" content="Urban Greening Perth, Micro-Greening WA, Whadjuk Region Landscaping, Binjareb Urban Canopy, Soil Preparation Perth, Native Nursery Consultation, Planting Plan Perth">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.mopanistudio.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mopanistudio.com/">
+    <meta property="og:title" content="Mopani Studio | Micro-Greening & Urban Landscape Practice">
+    <meta property="og:description" content="Connecting households across Perth, Whadjuk, and Binjareb regions to sustainable soil health, native planting plans, and seasonal care.">
+    <meta property="og:image" content="https://www.mopanistudio.com/og-image.jpg">
+
+    <!-- 3. LocalBusiness Structured Data Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Mopani Studio",
+      "url": "https://www.mopanistudio.com",
+      "logo": "https://www.mopanistudio.com/logo.png",
+      "description": "Urban greening practice aligning residential properties with WA's State Urban Greening Strategy across Whadjuk and Binjareb regions.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "WA",
+        "addressCountry": "AU"
+      },
+      "areaServed": [
+        "Perth",
+        "Whadjuk Region",
+        "Binjareb Region",
+        "Ellenbrook",
+        "Mandurah"
+      ],
+      "knowsAbout": [
+        "Micro-Greening",
+        "Soil Preparation",
+        "Mediterranean Plant Selection",
+        "Urban Canopy Expansion",
+        "Seasonal Soil Audits"
+      ]
+    }
+    </script>
+
+    <!-- 4. Styling and Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +63,7 @@
                     colors: {
                         brand: {
                             main: '#e4e2dd',     /* Warm stone canvas */
-                            card: '#dcd9d3',     /* Slightly deeper section tint */
+                            card: '#dcd9d3',     /* Section background tint */
                             accent: '#792125',   /* Deep burgundy rust */
                             accentHover: '#5e191c',
                             dark: '#1c1b18',     /* Soft black text */
@@ -55,7 +101,7 @@
 <body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
 
     <!-- NAVIGATION HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-brand-border/60 transition-all">
+    <header class="fixed top-0 left-0 right-0 z-40 glass-nav border-b border-brand-border/60 transition-all">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group">
                 <span class="w-3 h-3 rounded-full bg-brand-accent group-hover:scale-125 transition-transform"></span>
@@ -136,7 +182,7 @@
                     </p>
                 </div>
 
-                <!-- Process Accordion Accordion Cards -->
+                <!-- Process Accordion Cards -->
                 <div class="space-y-4">
                     <!-- Step 1 -->
                     <div class="border border-brand-border rounded-2xl bg-brand-card/40 overflow-hidden">
@@ -226,7 +272,7 @@
                         <h2 class="font-serif text-3xl sm:text-5xl">Urban Greening Articles</h2>
                     </div>
                     <p class="text-brand-muted text-sm max-w-md">
-                        Practical guides and educational pieces to empower every household in Western Australia.
+                        Practical guides and educational pieces to empower every household in Western Australia. Click any card to read the post.
                     </p>
                 </div>
 
@@ -234,74 +280,74 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     
                     <!-- Article 1 -->
-                    <article class="border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-colors">
+                    <div onclick="openArticleModal('article1')" class="cursor-pointer border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-all hover:-translate-y-1 group">
                         <div>
                             <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Guide</span>
-                            <h3 class="font-serif text-xl font-semibold mb-3">Urban Greening Practises for Dummies</h3>
+                            <h3 class="font-serif text-xl font-semibold mb-3 group-hover:text-brand-accent transition-colors">Urban Greening Practises for Dummies</h3>
                             <p class="text-sm text-brand-muted leading-relaxed mb-6">
                                 A simple, step-by-step primer on converting urban space into functional green canopy without needing advanced gardening skills.
                             </p>
                         </div>
-                        <a href="#contact" class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2 hover:underline">
-                            Read Guide <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </article>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2">
+                            Read Post <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
 
                     <!-- Article 2 -->
-                    <article class="border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-colors">
+                    <div onclick="openArticleModal('article2')" class="cursor-pointer border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-all hover:-translate-y-1 group">
                         <div>
                             <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Climate & Soil</span>
-                            <h3 class="font-serif text-xl font-semibold mb-3">How to Urban Green in Perth's Mediterranean Climate</h3>
+                            <h3 class="font-serif text-xl font-semibold mb-3 group-hover:text-brand-accent transition-colors">How to Urban Green in Perth's Mediterranean Climate</h3>
                             <p class="text-sm text-brand-muted leading-relaxed mb-6">
                                 Navigating hot, dry summers and sandy coastal soils. Techniques for water retention, soil building, and plant resilience.
                             </p>
                         </div>
-                        <a href="#contact" class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2 hover:underline">
-                            Read Guide <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </article>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2">
+                            Read Post <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
 
                     <!-- Article 3 -->
-                    <article class="border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-colors">
+                    <div onclick="openArticleModal('article3')" class="cursor-pointer border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-all hover:-translate-y-1 group">
                         <div>
                             <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Starter Kit</span>
-                            <h3 class="font-serif text-xl font-semibold mb-3">Micro-Greening Starting Kit</h3>
+                            <h3 class="font-serif text-xl font-semibold mb-3 group-hover:text-brand-accent transition-colors">Micro-Greening Starting Kit</h3>
                             <p class="text-sm text-brand-muted leading-relaxed mb-6">
                                 Essential tools, organic soil conditioners, and hardy native species recommended for your initial home planting setup.
                             </p>
                         </div>
-                        <a href="#contact" class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2 hover:underline">
-                            Read Guide <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </article>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2">
+                            Read Post <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
 
                     <!-- Article 4 -->
-                    <article class="border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-colors">
+                    <div onclick="openArticleModal('article4')" class="cursor-pointer border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-all hover:-translate-y-1 group">
                         <div>
                             <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Vision</span>
-                            <h3 class="font-serif text-xl font-semibold mb-3">Becoming the Greenest City on the Planet by 2050!</h3>
+                            <h3 class="font-serif text-xl font-semibold mb-3 group-hover:text-brand-accent transition-colors">Becoming the Greenest City on the Planet by 2050!</h3>
                             <p class="text-sm text-brand-muted leading-relaxed mb-6">
                                 Why residential micro-greening is the key to climate resilience in Perth, and how high per-capita participation turns the tide.
                             </p>
                         </div>
-                        <a href="#contact" class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2 hover:underline">
-                            Read Article <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </article>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2">
+                            Read Post <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
 
                     <!-- Article 5 -->
-                    <article class="border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-colors md:col-span-2 lg:col-span-2">
+                    <div onclick="openArticleModal('article5')" class="cursor-pointer border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-all hover:-translate-y-1 group md:col-span-2 lg:col-span-2">
                         <div>
                             <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Philosophy</span>
-                            <h3 class="font-serif text-2xl font-semibold mb-3">Why We Involve You into the Nursery Visit</h3>
+                            <h3 class="font-serif text-2xl font-semibold mb-3 group-hover:text-brand-accent transition-colors">Why We Involve You into the Nursery Visit</h3>
                             <p class="text-sm text-brand-muted leading-relaxed mb-6">
                                 Plant mortality drops significantly when home owners understand nursery stock selection, root health, and future placement logic. Discover why hands-on involvement transforms long-term survival rates.
                             </p>
                         </div>
-                        <a href="#contact" class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2 hover:underline">
-                            Read Philosophy Piece <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </article>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2">
+                            Read Post <i class="fa-solid fa-arrow-right"></i>
+                        </span>
+                    </div>
 
                 </div>
             </div>
@@ -388,7 +434,116 @@
         </div>
     </footer>
 
+    <!-- INTERACTIVE ARTICLE POPUP MODAL -->
+    <div id="article-modal" class="fixed inset-0 z-50 hidden bg-brand-dark/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div class="bg-brand-main w-full max-w-3xl rounded-3xl border border-brand-border shadow-2xl overflow-hidden my-auto max-h-[85vh] flex flex-col relative animate-fade-in">
+            <!-- Modal Header -->
+            <div class="p-6 sm:p-8 border-b border-brand-border bg-brand-card/40 flex items-start justify-between gap-4 sticky top-0 z-10 backdrop-blur-md">
+                <div>
+                    <span id="modal-category" class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-2">Category</span>
+                    <h2 id="modal-title" class="font-serif text-2xl sm:text-3xl font-semibold leading-snug">Article Title</h2>
+                </div>
+                <button onclick="closeArticleModal()" class="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center hover:bg-brand-accent hover:text-white transition-colors shrink-0">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <!-- Modal Scrollable Content -->
+            <div id="modal-body" class="p-6 sm:p-10 overflow-y-auto text-brand-dark text-sm sm:text-base leading-relaxed space-y-6">
+                <!-- Article text inserted dynamically -->
+            </div>
+            <!-- Modal Footer -->
+            <div class="p-6 border-t border-brand-border bg-brand-card/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-muted">
+                <span>mopani studio · Urban Greening Knowledge Base</span>
+                <a href="#contact" onclick="closeArticleModal()" class="px-5 py-2.5 bg-brand-accent text-white font-semibold uppercase tracking-wider rounded-full hover:bg-brand-accentHover transition-colors">
+                    Book Consultation
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
     <script>
+        /* Article Data Store */
+        const articlesData = {
+            article1: {
+                category: "Guide",
+                title: "Urban Greening Practises for Dummies",
+                content: `
+                    <p class="text-lg font-serif italic text-brand-muted">A simple, step-by-step primer on converting urban space into functional green canopy without needing advanced gardening skills.</p>
+                    <hr class="border-brand-border">
+                    <p>Urban greening does not require a botany degree or acres of land. At its core, micro-greening is about strategic placement, soil foundation, and choosing species that naturally thrive in local micro-climates.</p>
+                    <h3 class="font-serif text-xl font-semibold text-brand-dark mt-6">1. Start with the Soil</h3>
+                    <p>Before buying plants, focus on soil health. Sandy Australian soils often repel water (hydrophobia). Adding organic compost, clay, and wetting agents creates a moisture-retentive base.</p>
+                    <h3 class="font-serif text-xl font-semibold text-brand-dark mt-6">2. Strategic Layering</h3>
+                    <p>Combine ground covers, mid-story shrubs, and canopy trees. Layering lowers ambient ground temperatures and prevents evaporative water loss during hot summer days.</p>
+                `
+            },
+            article2: {
+                category: "Climate & Soil",
+                title: "How to Urban Green in Perth's Mediterranean Climate",
+                content: `
+                    <p class="text-lg font-serif italic text-brand-muted">Navigating hot, dry summers and sandy coastal soils across the Whadjuk and Binjareb regions.</p>
+                    <hr class="border-brand-border">
+                    <p>Perth experiences one of the most distinct Mediterranean climates in the world: hot, dry summers paired with mild, wet winters. Urban greening strategies must adapt to this cycle.</p>
+                    <h3 class="font-serif text-xl font-semibold text-brand-dark mt-6">Water Retention Techniques</h3>
+                    <p>Mulching with coarse native mulch keeps soil temperatures cool. Deep, infrequent watering encourages roots to grow downward into cooler soil layers, making plants drought-resilient.</p>
+                `
+            },
+            article3: {
+                category: "Starter Kit",
+                title: "Micro-Greening Starting Kit",
+                content: `
+                    <p class="text-lg font-serif italic text-brand-muted">Essential tools, soil conditioners, and hardy native species for your initial home setup.</p>
+                    <hr class="border-brand-border">
+                    <p>Setting up your home for urban greening is straightforward when equipped with the right baseline items.</p>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Organic Soil Conditioner:</strong> Enhances water-holding capacity in sandy soils.</li>
+                        <li><strong>Coarse Native Woodchips:</strong> Insulates soil against peak summer heat.</li>
+                        <li><strong>Hardy Local Native Species:</strong> Endemic plants adapted to Western Australian rainfall cycles.</li>
+                    </ul>
+                `
+            },
+            article4: {
+                category: "Vision",
+                title: "Becoming the Greenest City on the Planet by 2050!",
+                content: `
+                    <p class="text-lg font-serif italic text-brand-muted">Why residential participation is the single most critical factor in expanding Perth's urban canopy.</p>
+                    <hr class="border-brand-border">
+                    <p>Reaching a 30% canopy cover target by 2040 is only possible if private residential land is actively greened alongside public parks. By shifting individual yards into micro-climate reserves, Perth can establish a continuous ecological network across the state.</p>
+                `
+            },
+            article5: {
+                category: "Philosophy",
+                title: "Why We Involve You into the Nursery Visit",
+                content: `
+                    <p class="text-lg font-serif italic text-brand-muted">Lowering plant mortality rates by teaching homeowners stock selection and root health directly.</p>
+                    <hr class="border-brand-border">
+                    <p>High plant mortality occurs when establishment factors are overlooked. During our joint nursery walkthroughs, clients learn how to identify healthy root structures, understand plant growth habits, and select specimens designed for long-term survival.</p>
+                `
+            }
+        };
+
+        /* Modal Functions */
+        function openArticleModal(articleKey) {
+            const article = articlesData[articleKey];
+            if (!article) return;
+
+            document.getElementById('modal-category').innerText = article.category;
+            document.getElementById('modal-title').innerText = article.title;
+            document.getElementById('modal-body').innerHTML = article.content;
+
+            const modal = document.getElementById('article-modal');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeArticleModal() {
+            const modal = document.getElementById('article-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Re-enable background scrolling
+        }
+
+        /* Accordion Toggle Function */
         function toggleAccordion(id) {
             const content = document.getElementById(id);
             const icon = document.getElementById('icon-' + id);
@@ -397,7 +552,6 @@
                 content.classList.remove('open');
                 icon.classList.remove('rotate-45');
             } else {
-                // Close others
                 document.querySelectorAll('.accordion-content').forEach(el => el.classList.remove('open'));
                 document.querySelectorAll('[id^="icon-"]').forEach(el => el.classList.remove('rotate-45'));
                 
@@ -406,6 +560,7 @@
             }
         }
 
+        /* Form Handling */
         function handleFormSubmit(e) {
             e.preventDefault();
             document.getElementById('form-feedback').classList.remove('hidden');
