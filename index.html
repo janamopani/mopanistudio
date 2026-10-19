@@ -106,6 +106,274 @@
         .skip-link:focus {
             top: 1rem;
         }
+        .evidence-story {
+            --story-cream: #f2eee6;
+            --story-muted: rgba(255, 255, 255, 0.72);
+            --story-line: rgba(255, 255, 255, 0.22);
+            --story-soft: rgba(255, 255, 255, 0.08);
+        }
+        .story-index {
+            display: grid;
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            border-top: 1px solid var(--story-line);
+            border-bottom: 1px solid var(--story-line);
+        }
+        .story-index button {
+            min-height: 72px;
+            padding: 0.75rem;
+            border-right: 1px solid var(--story-line);
+            color: rgba(255, 255, 255, 0.58);
+            text-align: left;
+            transition: background-color 180ms ease, color 180ms ease;
+        }
+        .story-index button:last-child { border-right: 0; }
+        .story-index button[aria-selected="true"] {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .story-index button[aria-selected="true"] .story-index-line {
+            transform: scaleX(1);
+        }
+        .story-index-line {
+            display: block;
+            height: 2px;
+            margin-top: 0.6rem;
+            background: #fff;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 280ms ease;
+        }
+        .story-stage {
+            min-height: 620px;
+            display: grid;
+            grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+            gap: clamp(2rem, 6vw, 6rem);
+            align-items: center;
+            padding: clamp(3rem, 6vw, 5.5rem) 0 3rem;
+        }
+        .story-copy { max-width: 34rem; }
+        .story-kicker,
+        .story-status {
+            font-size: 0.7rem;
+            line-height: 1.4;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .story-status { color: var(--story-muted); }
+        .story-number {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.8rem, 6vw, 5.8rem);
+            line-height: 0.92;
+            letter-spacing: -0.04em;
+        }
+        .story-visual {
+            min-height: 390px;
+            border: 1px solid var(--story-line);
+            border-radius: 1.5rem;
+            background: var(--story-soft);
+            padding: clamp(1.25rem, 4vw, 2.5rem);
+            overflow: hidden;
+        }
+        .story-visual-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            height: 100%;
+        }
+        .metric-card {
+            border: 1px solid var(--story-line);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 150px;
+            background: rgba(28, 27, 24, 0.12);
+        }
+        .metric-card.future { border-style: dashed; }
+        .metric-value {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2rem, 4vw, 4rem);
+            line-height: 1;
+        }
+        .metric-label { color: var(--story-muted); font-size: 0.75rem; line-height: 1.5; }
+        .bar-track {
+            height: 0.75rem;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .bar-fill { height: 100%; background: #fff; border-radius: inherit; }
+        .bar-fill.future {
+            background: repeating-linear-gradient(90deg, #fff 0 8px, rgba(255,255,255,.25) 8px 13px);
+        }
+        .street {
+            position: relative;
+            min-height: 235px;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: linear-gradient(#a84a41 0 45%, #452b29 45% 100%);
+        }
+        .street.shaded {
+            background: linear-gradient(#486e59 0 45%, #283a31 45% 100%);
+        }
+        .street::after {
+            content: "";
+            position: absolute;
+            left: 12%; right: 12%; bottom: 18%;
+            height: 4px;
+            background: rgba(255,255,255,.7);
+            box-shadow: 0 18px 0 rgba(255,255,255,.28);
+        }
+        .canopy {
+            position: absolute;
+            width: 110px; height: 85px;
+            left: 50%; top: 18%; transform: translateX(-50%);
+            border-radius: 52% 48% 45% 55%;
+            background: #76936d;
+            box-shadow: -32px 14px 0 #627d5c, 34px 12px 0 #89a17d;
+        }
+        .canopy::after {
+            content: "";
+            position: absolute;
+            width: 8px; height: 105px; left: 52%; top: 56%;
+            background: #d3b38d;
+        }
+        .water-column {
+            align-self: end;
+            border-radius: 1rem 1rem 0.3rem 0.3rem;
+            background: linear-gradient(to top, rgba(255,255,255,.92), rgba(255,255,255,.45));
+            min-height: 42px;
+        }
+        .person-line {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 1rem;
+            min-height: 230px;
+        }
+        .person-mark {
+            width: 94px; height: 94px; margin: 0 auto;
+            border: 1px solid var(--story-line);
+            border-radius: 50%;
+            display: grid; place-items: center;
+            font: 2.25rem "Playfair Display", serif;
+        }
+        .time-line {
+            position: relative;
+            height: 2px;
+            background: rgba(255,255,255,.34);
+        }
+        .time-line::after {
+            content: "";
+            position: absolute; right: 0; top: -4px;
+            width: 10px; height: 10px; border-radius: 50%; background: #fff;
+        }
+        .growth-track {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            align-items: end;
+            gap: 0.75rem;
+            min-height: 190px;
+        }
+        .growth-stage {
+            position: relative;
+            border-bottom: 2px solid rgba(255,255,255,.5);
+            min-height: 80px;
+        }
+        .growth-stage::before {
+            content: "";
+            position: absolute;
+            left: 50%; bottom: 0; transform: translateX(-50%);
+            width: var(--canopy); height: var(--canopy);
+            border-radius: 50% 45% 52% 48%;
+            background: rgba(171, 202, 149, .82);
+        }
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0.65rem;
+        }
+        .action-cell {
+            aspect-ratio: 1;
+            border: 1px solid var(--story-line);
+            border-radius: 0.55rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .action-cell.active::before {
+            content: "";
+            position: absolute;
+            width: 65%; height: 65%; left: 17%; top: 18%;
+            border-radius: 52% 48% 46% 54%;
+            background: #8fa47c;
+        }
+        .story-transition {
+            border-left: 2px solid rgba(255,255,255,.48);
+            padding-left: 1rem;
+            color: var(--story-muted);
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+        }
+        .story-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            border-top: 1px solid var(--story-line);
+            padding: 1.25rem 0;
+        }
+        .story-control-button {
+            min-width: 44px;
+            min-height: 44px;
+            padding: 0.7rem 1rem;
+            border: 1px solid var(--story-line);
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .story-control-button:disabled { opacity: 0.35; cursor: not-allowed; }
+        .source-disclosure {
+            border-top: 1px solid var(--story-line);
+            color: var(--story-muted);
+        }
+        .source-disclosure summary {
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .source-disclosure a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+        .evidence-story:not(.story-ready) .story-index,
+        .evidence-story:not(.story-ready) .story-controls,
+        .evidence-story:not(.story-ready) .story-announcement { display: none; }
+        .evidence-story:not(.story-ready) .evidence-chapter + .evidence-chapter {
+            border-top: 1px solid var(--story-line);
+        }
+        @media (max-width: 899px) {
+            .story-index { grid-template-columns: repeat(6, minmax(88px, 1fr)); overflow-x: auto; }
+            .story-index button { min-height: 62px; }
+            .story-index-label { display: none; }
+            .story-stage { grid-template-columns: 1fr; min-height: 0; gap: 2rem; padding-top: 3rem; }
+            .story-copy { max-width: none; }
+            .story-visual { min-height: 330px; }
+            .story-visual-grid { grid-template-columns: 1fr; }
+            .street { min-height: 170px; }
+            .person-line { grid-template-columns: 1fr; min-height: 0; }
+            .time-line { height: 80px; width: 2px; margin: 0 auto; }
+            .time-line::after { right: -4px; top: auto; bottom: 0; }
+            .action-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .story-index-line, .story-index button { transition: none; }
+        }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
@@ -178,19 +446,161 @@
             </div>
         </section>
 
-        <!-- 2050 MISSION GATEWAY -->
-        <section id="vision" class="py-16 bg-brand-accent text-white px-6">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
-                <div class="md:col-span-2">
-                    <span class="text-xs tracking-widest uppercase text-white/70 font-semibold block mb-2">Mopani Studio’s 2050 mission</span>
-                    <h2 class="font-serif text-2xl sm:text-3xl">Making Perth the greenest city on the planet by 2050.</h2>
-                    <p class="text-white/80 mt-3 text-sm leading-relaxed">
-                        The built city accumulates quickly. The living city matures slowly. If Perth wants the second system functioning by 2050, its culture must begin growing it now.
+        <!-- 2050 URBAN GREENING EVIDENCE STORY -->
+        <section id="vision" class="evidence-story bg-brand-accent text-white px-6 py-20" aria-labelledby="vision-title" aria-roledescription="urban greening story">
+            <div class="max-w-7xl mx-auto">
+                <header class="max-w-4xl mb-12 md:mb-16">
+                    <span class="story-kicker text-white/70 block mb-4">Mopani Studio’s 2050 urban greening mission</span>
+                    <h2 id="vision-title" class="font-serif text-4xl sm:text-5xl md:text-6xl leading-tight">Why Perth and Peel need to urban-green now.</h2>
+                    <p class="text-white/80 mt-6 text-base sm:text-lg leading-relaxed max-w-3xl">
+                        Perth and Peel are growing into a hotter, drier future. Roads and buildings can be added quickly; established shade, healthy roots and habitat cannot. Urban greening now gives trees, gardens and neighbourhoods time to become stronger before 2050.
                     </p>
+                </header>
+
+                <div class="story-index" role="tablist" aria-label="2050 urban greening chapters">
+                    <button type="button" role="tab" aria-selected="true" data-story-target="0"><span class="block font-serif text-xl">01</span><span class="story-index-label text-[10px] uppercase tracking-widest">Growth</span><span class="story-index-line"></span></button>
+                    <button type="button" role="tab" aria-selected="false" data-story-target="1"><span class="block font-serif text-xl">02</span><span class="story-index-label text-[10px] uppercase tracking-widest">Heat</span><span class="story-index-line"></span></button>
+                    <button type="button" role="tab" aria-selected="false" data-story-target="2"><span class="block font-serif text-xl">03</span><span class="story-index-label text-[10px] uppercase tracking-widest">Water</span><span class="story-index-line"></span></button>
+                    <button type="button" role="tab" aria-selected="false" data-story-target="3"><span class="block font-serif text-xl">04</span><span class="story-index-label text-[10px] uppercase tracking-widest">People</span><span class="story-index-line"></span></button>
+                    <button type="button" role="tab" aria-selected="false" data-story-target="4"><span class="block font-serif text-xl">05</span><span class="story-index-label text-[10px] uppercase tracking-widest">Time</span><span class="story-index-line"></span></button>
+                    <button type="button" role="tab" aria-selected="false" data-story-target="5"><span class="block font-serif text-xl">06</span><span class="story-index-label text-[10px] uppercase tracking-widest">Action</span><span class="story-index-line"></span></button>
                 </div>
-                <div class="flex flex-col items-center md:items-end justify-center border-t md:border-t-0 md:border-l border-white/20 pt-6 md:pt-0 md:pl-8 text-center md:text-right">
-                    <div class="text-3xl font-serif">Living systems need lead time.</div>
-                    <div class="text-xs uppercase tracking-widest text-white/80 mt-2">Evidence story in development</div>
+
+                <div class="story-announcement sr-only" aria-live="polite" aria-atomic="true"></div>
+
+                <article class="evidence-chapter" data-story-chapter="0" aria-labelledby="story-title-1">
+                    <div class="story-stage">
+                        <div class="story-copy">
+                            <span class="story-status">Planning horizon · Perth and Peel</span>
+                            <h3 id="story-title-1" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">Perth and Peel are planning for one million more people—and the shade they will need.</h3>
+                            <p class="text-white/80 leading-relaxed mb-6">Perth and Peel are being planned for about 3.5 million people around 2050. How new neighbourhoods are planted will shape how much heat, shade and biodiversity residents live with.</p>
+                            <p class="story-transition">More urban growth makes urban greening more important, not less.</p>
+                        </div>
+                        <div class="story-visual" role="img" aria-label="Perth and Peel population planning horizon rises from about 2.46 million people in 2025 to 3.5 million around 2050, an increase of about 1.04 million people or 42.3 percent.">
+                            <div class="story-visual-grid">
+                                <div class="metric-card">
+                                    <span class="metric-label">2025 population</span><strong class="metric-value">2.46m</strong><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
+                                </div>
+                                <div class="metric-card future">
+                                    <span class="metric-label">Around 2050 · planning scenario</span><strong class="metric-value">3.5m</strong><div class="bar-track"><div class="bar-fill future" style="width:100%"></div></div>
+                                </div>
+                                <div class="metric-card col-span-full">
+                                    <span class="metric-label">Physical growth being planned</span><strong class="font-serif text-3xl sm:text-4xl">800,000 additional homes</strong><span class="metric-label">+1.04 million people / +42.3% derived from the two population figures</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> planning scenario and derived comparison—not a guaranteed population forecast.</p><p class="mt-2"><a href="https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage/perth-and-peel35million">WA Government · Perth and Peel@3.5million</a> · <a href="https://www.wa.gov.au/government/document-collections/perth-and-peel35million-health-check">2026 Health Check</a></p></div></details>
+                </article>
+
+                <article class="evidence-chapter" data-story-chapter="1" aria-labelledby="story-title-2">
+                    <div class="story-stage">
+                        <div class="story-copy">
+                            <span class="story-status">Projected extreme heat · Perth</span>
+                            <h3 id="story-title-2" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">A hotter city needs more shade built into everyday life.</h3>
+                            <p class="text-white/80 leading-relaxed mb-6">Roads, roofs, paving and car parks absorb heat and release it slowly. Trees and plants interrupt that heat through shade and transpiration. Urban greening is how neighbourhoods reduce avoidable heat exposure as the climate warms.</p>
+                            <p class="story-transition">The places that are planted now have time to become the cooler places people will need later.</p>
+                        </div>
+                        <div class="story-visual" role="img" aria-label="Under the cited high-emissions projection, Perth days above 40 degrees Celsius rise from about 1.5 per year in 1981 to 2010 to about 5 per year in 2036 to 2065. A shaded street interrupts heat held by hard surfaces.">
+                            <div class="grid grid-cols-2 gap-3 mb-4">
+                                <div class="street"><span class="absolute z-10 left-4 top-4 text-xs font-bold uppercase tracking-widest">Hard surface</span></div>
+                                <div class="street shaded"><span class="absolute z-10 left-4 top-4 text-xs font-bold uppercase tracking-widest">Tree shade</span><span class="canopy" aria-hidden="true"></span></div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="metric-card"><span class="metric-label">1981–2010</span><strong class="font-serif text-3xl">~1.5 days</strong><span class="metric-label">above 40°C each year</span></div>
+                                <div class="metric-card future"><span class="metric-label">2036–2065 · high-emissions projection</span><strong class="font-serif text-3xl">~5 days</strong><span class="metric-label">above 40°C each year</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> scenario-dependent projection. The street graphic explains the heat mechanism; it is not a measured temperature comparison.</p><p class="mt-2"><a href="https://www.climatechangeinaustralia.gov.au/en/changing-climate/state-climate-statements/western-australia/">CSIRO and Bureau of Meteorology · Western Australia climate statement</a> · <a href="https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage/urban-greening-strategy">WA Urban Greening Strategy</a></p></div></details>
+                </article>
+
+                <article class="evidence-chapter" data-story-chapter="2" aria-labelledby="story-title-3">
+                    <div class="story-stage">
+                        <div class="story-copy">
+                            <span class="story-status">Observed change · Perth water</span>
+                            <h3 id="story-title-3" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">Urban greening must fit the water climate Perth has now.</h3>
+                            <p class="text-white/80 leading-relaxed mb-6">Perth already receives less rain and far less water reaches its dams. The answer is not to abandon greenery. It is to establish waterwise plants, improve soil, retain shade and use water intelligently.</p>
+                            <p class="story-transition">A waterwise garden and a greener city are part of the same response.</p>
+                        </div>
+                        <div class="story-visual" role="img" aria-label="Perth average annual rainfall has fallen by around 15 percent since the 1970s. Average annual streamflow into Perth dams fell from 420 billion litres before 1975 to 75 billion litres in 2010 to 2024.">
+                            <div class="metric-card mb-4"><span class="metric-label">Average annual rainfall since the 1970s</span><strong class="story-number">−15%</strong><div class="bar-track mt-4"><div class="bar-fill" style="width:85%"></div></div></div>
+                            <div class="grid grid-cols-2 gap-4 items-end h-52">
+                                <div class="flex flex-col h-full justify-end text-center"><strong class="font-serif text-3xl mb-2">420bn L</strong><div class="water-column" style="height:100%"></div><span class="metric-label mt-2">Before 1975</span></div>
+                                <div class="flex flex-col h-full justify-end text-center"><strong class="font-serif text-3xl mb-2">75bn L</strong><div class="water-column" style="height:18%"></div><span class="metric-label mt-2">2010–2024</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> historical observation. Dam streamflow is not the same as total household water availability; Perth’s drinking-water supply is now diversified.</p><p class="mt-2"><a href="https://www.watercorporation.com.au/our-water/our-water-future/our-water-and-perth">Water Corporation · Our water and Perth</a></p></div></details>
+                </article>
+
+                <article class="evidence-chapter" data-story-chapter="3" aria-labelledby="story-title-4">
+                    <div class="story-stage">
+                        <div class="story-copy">
+                            <span class="story-status">Modelled health rate · Perth</span>
+                            <h3 id="story-title-4" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">The heat we leave behind is the heat we will age in.</h3>
+                            <p class="text-white/80 leading-relaxed mb-6">Under the WA Health report’s RCP4.5 scenario, Perth’s heat-related death rate rises by 61.4% by the 2050s. People over 75 and those susceptible to cardiovascular disease are projected to be most affected.</p>
+                            <p class="story-transition">Urban greening is not only about how a suburb looks. It changes the conditions people move, rest and grow older in.</p>
+                        </div>
+                        <div class="story-visual" role="img" aria-label="Perth heat-related mortality rate is modelled to rise from 5.29 deaths per 100,000 in the 2010s to 8.54 per 100,000 in the 2050s under the RCP4.5 scenario, a 61.4 percent rise.">
+                            <div class="text-center mb-6"><span class="metric-label">Modelled rate change</span><div class="story-number mt-2">+61.4%</div></div>
+                            <div class="person-line">
+                                <div class="text-center"><div class="person-mark">5.29</div><span class="metric-label block mt-3">2010s · deaths per 100,000</span></div>
+                                <div class="time-line" aria-hidden="true"></div>
+                                <div class="text-center"><div class="person-mark border-dashed">8.54</div><span class="metric-label block mt-3">2050s · RCP4.5 projection</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> modelled rate, not a certain future death count. It must remain attached to the scenario, period and per-100,000 unit.</p><p class="mt-2"><a href="https://www.health.wa.gov.au/~/media/Corp/Documents/Reports-and-publications/Climate-change-heat-related-health-impacts/Projecting-heat-related-health-impacts-under-climate-change-in-Perth_Final.pdf">WA Department of Health · Projecting heat-related health impacts under climate change in Perth</a></p></div></details>
+                </article>
+
+                <article class="evidence-chapter" data-story-chapter="4" aria-labelledby="story-title-5">
+                    <div class="story-stage">
+                        <div class="story-copy">
+                            <span class="story-status">Policy targets + time available</span>
+                            <h3 id="story-title-5" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">Shade cannot be planted at the last minute.</h3>
+                            <p class="text-white/80 leading-relaxed mb-6">A road can be paved quickly. Roots, canopy, healthier soil and habitat develop over seasons. Perth and Peel have 24 growing years before 2050. Every year urban greening is delayed is one fewer year available for plants to establish.</p>
+                            <p class="story-transition">The easiest time to start building future shade is while we still have time for it to grow.</p>
+                        </div>
+                        <div class="story-visual" role="img" aria-label="There are 24 years from 2026 to 2050. State policy targets include one million trees by 2035 and 30 percent Perth tree canopy by 2040. Plants establish and develop over time rather than appearing instantly.">
+                            <div class="flex justify-between items-baseline mb-8"><span class="font-serif text-3xl">2026</span><strong class="story-number">24 years</strong><span class="font-serif text-3xl">2050</span></div>
+                            <div class="growth-track" aria-hidden="true">
+                                <div class="growth-stage" style="--canopy:24px"></div><div class="growth-stage" style="--canopy:52px"></div><div class="growth-stage" style="--canopy:90px"></div><div class="growth-stage" style="--canopy:138px"></div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3 mt-5"><div class="metric-card"><span class="metric-label">2035 target</span><strong class="font-serif text-2xl">1 million trees</strong></div><div class="metric-card"><span class="metric-label">2040 Perth target</span><strong class="font-serif text-2xl">30% canopy</strong></div></div>
+                        </div>
+                    </div>
+                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> 24 years is calendar time available, not a universal plant-maturity claim. The 2035 and 2040 figures are policy targets, not achieved outcomes.</p><p class="mt-2"><a href="https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage/urban-greening-strategy">WA Urban Greening Strategy</a> · <a href="https://www.wa.gov.au/media/158067/download?inline=">Let’s Grow Action Plan 2026–2030</a></p></div></details>
+                </article>
+
+                <article class="evidence-chapter" data-story-chapter="5" aria-labelledby="story-title-6">
+                    <div class="story-stage">
+                        <div class="story-copy">
+                            <span class="story-status">Shared action · public and private land</span>
+                            <h3 id="story-title-6" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">Make urban greening part of how Perth lives.</h3>
+                            <p class="text-white/80 leading-relaxed mb-6">Urban greening is not one planting day. It is the continuing work of retaining, planting and caring for greenery across homes, streets and neighbourhoods. Government, industry and residents each hold part of the work.</p>
+                            <p class="font-serif text-2xl sm:text-3xl italic mb-7">Stop. Look around. What could begin growing here?</p>
+                            <p class="text-white/80 leading-relaxed mb-7">At home, the first step is to understand what your property can support. Mopani Studio reads the site, designs appropriate planting and helps residents establish it correctly—so urban greening becomes a practical skill, not a good intention.</p>
+                            <a href="garden-site-reading/" class="inline-flex px-6 py-3 bg-white text-brand-accent text-xs font-bold tracking-wider uppercase rounded-full hover:bg-brand-main transition-colors">Begin with a Garden Site Reading <i class="fa-solid fa-arrow-right ml-2 mt-0.5" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="story-visual" role="img" aria-label="A regional grid fills gradually with many small areas of established greenery, representing shared urban greening across homes, streets and public land rather than one instant transformation.">
+                            <p class="story-kicker text-white/70 mb-6">One region · many places to begin</p>
+                            <div class="action-grid" aria-hidden="true">
+                                <span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell"></span><span class="action-cell active"></span>
+                                <span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell"></span>
+                                <span class="action-cell active"></span><span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell"></span>
+                                <span class="action-cell"></span><span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell active"></span>
+                            </div>
+                            <div class="mt-8 pt-6 border-t border-white/20 grid grid-cols-3 gap-3 text-center"><span class="metric-label">Homes</span><span class="metric-label">Streets</span><span class="metric-label">Public land</span></div>
+                        </div>
+                    </div>
+                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> shared-responsibility policy direction plus Mopani Studio’s proportionate household pathway. A resident’s action matters but does not replace government or industry responsibility.</p><p class="mt-2"><a href="https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage/urban-greening-strategy">WA Urban Greening Strategy</a> · <a href="https://www.wa.gov.au/media/158067/download?inline=">Let’s Grow Action Plan 2026–2030</a></p></div></details>
+                </article>
+
+                <div class="story-controls" aria-label="Evidence story controls">
+                    <button type="button" id="story-prev" class="story-control-button" aria-label="Previous chapter"><i class="fa-solid fa-arrow-left mr-2" aria-hidden="true"></i> Previous</button>
+                    <span id="story-count" class="story-status">01 / 06 · Growth</span>
+                    <button type="button" id="story-next" class="story-control-button" aria-label="Next chapter">Next <i class="fa-solid fa-arrow-right ml-2" aria-hidden="true"></i></button>
                 </div>
             </div>
         </section>
@@ -423,9 +833,9 @@
                     <button type="button" onclick="openArticleModal('article4')" aria-haspopup="dialog" class="text-left border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-all hover:-translate-y-1 group">
                         <div>
                             <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Vision</span>
-                            <h3 class="font-serif text-xl font-semibold mb-3 group-hover:text-brand-accent transition-colors">The Living City Needs Lead Time</h3>
+                            <h3 class="font-serif text-xl font-semibold mb-3 group-hover:text-brand-accent transition-colors">Why Urban Greening Has to Begin Before 2050</h3>
                             <p class="text-sm text-brand-muted leading-relaxed mb-6">
-                                Why 2050 is a lens for acting now—and why roots, canopy and resident capability cannot be installed at the last minute.
+                                Why future shade, healthy roots and biodiversity depend on urban greening that begins while there is still time for it to establish.
                             </p>
                         </div>
                         <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2">
@@ -597,13 +1007,13 @@
             },
             article4: {
                 category: "Vision",
-                title: "The Living City Needs Lead Time",
+                title: "Why Urban Greening Has to Begin Before 2050",
                 content: `
-                    <p class="text-lg font-serif italic text-brand-muted">2050 is a lens for seeing the consequence of when establishment begins.</p>
+                    <p class="text-lg font-serif italic text-brand-muted">The greenery Perth and Peel will need in 2050 has to begin establishing before then.</p>
                     <hr class="border-brand-border">
-                    <p>The built city can be expanded faster than roots, canopy and resident capability can mature. The Mopani Studio 2050 story will compare those two clocks using traceable Perth-and-Peel evidence.</p>
-                    <blockquote class="border-l-4 border-brand-accent pl-5 font-serif text-xl italic">The built city accumulates quickly. The living city matures slowly. If Perth wants the second system functioning by 2050, its culture must begin growing it now.</blockquote>
-                    <p>The full six-part evidence story remains in development. Figures will not be published until their source, geography, period, unit, transformation and limitation are recorded.</p>
+                    <p>Homes, roads and hard surfaces can be added faster than trees can spread canopy, roots can establish and habitat can return. This makes time one of urban greening’s most important resources.</p>
+                    <blockquote class="border-l-4 border-brand-accent pl-5 font-serif text-xl italic">The built city grows quickly. Trees, roots and habitat need time. Perth and Peel have 24 growing years before 2050—and the choice to use them begins now.</blockquote>
+                    <p>The six-part 2050 story explains how population growth, heat, water and human health make urban greening a practical priority now—not a project to leave until conditions become harder.</p>
                 `
             }
         };
@@ -652,6 +1062,76 @@
                 icon.classList.add('rotate-45');
                 button.setAttribute('aria-expanded', 'true');
             }
+        }
+
+        /* 2050 urban greening evidence story.
+           Progressive enhancement keeps every chapter readable if JavaScript is unavailable. */
+        function mountEvidenceStory() {
+            const story = document.getElementById('vision');
+            if (!story) return;
+
+            const chapters = Array.from(story.querySelectorAll('[data-story-chapter]'));
+            const tabs = Array.from(story.querySelectorAll('[data-story-target]'));
+            const previous = document.getElementById('story-prev');
+            const next = document.getElementById('story-next');
+            const count = document.getElementById('story-count');
+            const announcement = story.querySelector('.story-announcement');
+            const chapterNames = ['Growth', 'Heat', 'Water', 'People', 'Time', 'Action'];
+            let activeIndex = 0;
+
+            if (!chapters.length || chapters.length !== tabs.length || !previous || !next || !count) return;
+
+            story.classList.add('story-ready');
+
+            function showChapter(index, options = {}) {
+                const safeIndex = Math.max(0, Math.min(index, chapters.length - 1));
+                activeIndex = safeIndex;
+
+                chapters.forEach((chapter, chapterIndex) => {
+                    const active = chapterIndex === activeIndex;
+                    chapter.hidden = !active;
+                    chapter.setAttribute('aria-hidden', String(!active));
+                });
+
+                tabs.forEach((tab, tabIndex) => {
+                    const active = tabIndex === activeIndex;
+                    tab.setAttribute('aria-selected', String(active));
+                    tab.tabIndex = active ? 0 : -1;
+                });
+
+                previous.disabled = activeIndex === 0;
+                next.disabled = activeIndex === chapters.length - 1;
+                count.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')} · ${chapterNames[activeIndex]}`;
+                announcement.textContent = `Chapter ${activeIndex + 1} of ${chapters.length}: ${chapterNames[activeIndex]}`;
+
+                if (options.focusTab) tabs[activeIndex].focus();
+            }
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => showChapter(index));
+                tab.addEventListener('keydown', event => {
+                    if (event.key === 'ArrowRight') {
+                        event.preventDefault();
+                        showChapter((index + 1) % tabs.length, { focusTab: true });
+                    }
+                    if (event.key === 'ArrowLeft') {
+                        event.preventDefault();
+                        showChapter((index - 1 + tabs.length) % tabs.length, { focusTab: true });
+                    }
+                    if (event.key === 'Home') {
+                        event.preventDefault();
+                        showChapter(0, { focusTab: true });
+                    }
+                    if (event.key === 'End') {
+                        event.preventDefault();
+                        showChapter(tabs.length - 1, { focusTab: true });
+                    }
+                });
+            });
+
+            previous.addEventListener('click', () => showChapter(activeIndex - 1));
+            next.addEventListener('click', () => showChapter(activeIndex + 1));
+            showChapter(0);
         }
 
         const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -716,6 +1196,7 @@
             host.replaceChildren(iframe);
         }
 
+        mountEvidenceStory();
         mountSiteReadingForm();
     </script>
 </body>
