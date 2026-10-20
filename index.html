@@ -107,6 +107,7 @@
             top: 1rem;
         }
         .evidence-story {
+            scroll-margin-top: 5rem;
             --story-cream: #f2eee6;
             --story-muted: rgba(255, 255, 255, 0.72);
             --story-line: rgba(255, 255, 255, 0.22);
@@ -323,14 +324,17 @@
             color: rgba(255,255,255,.78);
         }
         @media (max-width: 720px) {
-            .living-visual { min-height: min(66svh, 540px); }
+            .living-visual { min-height: min(62svh, 500px); }
             .living-year { min-height: 56px; padding: .7rem .55rem; }
             .living-year .year-label { display: none; }
             .living-caption { padding: .85rem .9rem; }
             .living-caption p { font-size: .8rem; }
-            .living-evidence { grid-template-columns: 1fr; }
-            .living-evidence > div { min-height: 0; border-right: 0; border-bottom: 1px solid var(--story-line); }
-            .living-evidence > div:last-child { border-bottom: 0; }
+            .living-evidence { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .living-evidence > div { min-height: 0; padding: .8rem .65rem; border-right: 1px solid var(--story-line); border-bottom: 0; }
+            .living-evidence > div:last-child { border-right: 0; }
+            .living-evidence strong { font-size: 1.05rem; line-height: 1.05; }
+            .living-evidence small { font-size: .62rem; }
+            .living-evidence .story-status { font-size: .56rem; letter-spacing: .09em; }
             .closing-bridge { grid-template-columns: 1fr; }
             .story-controls .story-status { max-width: 8rem; text-align: center; }
         }
@@ -425,7 +429,7 @@
                     <span class="story-kicker text-white/70 block mb-4">Mopani Studio’s 2050 urban greening mission</span>
                     <h2 id="vision-title" class="font-serif text-4xl sm:text-5xl md:text-6xl leading-tight">Why Perth and Peel need to urban-green now.</h2>
                     <p class="text-white/80 mt-6 text-base sm:text-lg leading-relaxed max-w-3xl">
-                        There are <strong data-days-to-2050>8,474</strong> days until 2050—time to cultivate, nurture and establish biodiverse urban greening across Perth and Peel, creating cooler streets, stronger habitat and healthier neighbourhoods for a region planned around 3.5 million people.
+                        Every day between now and 2050 is time available to cultivate, nurture and establish biodiverse urban greening across Perth and Peel—creating cooler streets, stronger habitat and healthier neighbourhoods for a region planned around 3.5 million people.
                     </p>
                     <div class="living-counter" aria-label="Live countdown to 1 January 2050">
                         <strong data-days-to-2050>8,474</strong>
@@ -528,8 +532,8 @@
                     </div>
 
                     <div class="living-evidence" aria-label="Key evidence">
-                        <div><span class="story-status">Land consumed through construction</span><strong>2.05 ha/day</strong><small>Perth and Peel · 20-year average to December 2024</small></div>
-                        <div><span class="story-status">2050 planning horizon</span><strong>3.5m people</strong><small>Planning framework—not a guaranteed population outcome</small></div>
+                        <div><span class="story-status">Land consumed through construction</span><strong>2.05 hectares</strong><small>per day · Perth and Peel · 20-year average to December 2024</small></div>
+                        <div><span class="story-status">2050 planning horizon</span><strong>3.5 million</strong><small>people · planning framework—not a guaranteed outcome</small></div>
                         <div><span class="story-status">The property response</span><strong>Read first</strong><small>Sun, exposure, existing planting and soil moisture</small></div>
                     </div>
 
