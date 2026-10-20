@@ -522,7 +522,7 @@
                         </svg>
                         <div class="living-caption">
                             <span class="story-status" data-state-label>2050 · Carry forward</span>
-                            <h3 id="living-scene-title" data-state-title>Make urban greening part of how Perth and Peel lives.</h3>
+                            <h3 id="living-scene-title" data-state-title>Make urban greening part of everyday life across Perth and Peel.</h3>
                             <p id="living-scene-description" data-state-copy>Today’s five-year-olds will be the next generation entering their thirties in 2050. Let’s lead by example and teach them that urban greening is a way of life.</p>
                         </div>
                     </div>
@@ -1071,7 +1071,7 @@
                 {
                     year: '2050',
                     label: '2050 · Carry forward',
-                    title: 'Make urban greening part of how Perth and Peel lives.',
+                    title: 'Make urban greening part of everyday life across Perth and Peel.',
                     copy: 'Today’s five-year-olds will be the next generation entering their thirties in 2050. Let’s lead by example and teach them that urban greening is a way of life.'
                 }
             ];
@@ -1120,7 +1120,11 @@
             function scheduleNext() {
                 stopTimer();
                 if (reduceMotion || paused || activeIndex >= states.length - 1) {
-                    if (activeIndex >= states.length - 1) hasPlayed = true;
+                    if (activeIndex >= states.length - 1) {
+                        hasPlayed = true;
+                        paused = true;
+                        updatePlayButton();
+                    }
                     return;
                 }
                 timer = window.setTimeout(() => {
