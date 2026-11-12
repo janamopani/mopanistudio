@@ -1,1245 +1,162 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en-AU">
 <head>
-    <!-- 1. Primary Technical Declarations -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mopani Studio | Garden Site Reading & Planting Design Perth</title>
-
-    <!-- 2. SEO & Open Graph Metadata -->
-    <meta name="description" content="Residential urban greening, planting design and softscape establishment near Ellenbrook. Begin with a 60-minute Garden Site Reading and a practical property report.">
-    <meta name="robots" content="index, follow">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mopani Studio | Ellenbrook Garden Site Reading Pilot</title>
+    <meta name="description" content="Mopani Studio is inviting Ellenbrook residents to help test a one-hour Garden Site Reading. Register your interest in the pilot.">
     <link rel="canonical" href="https://www.mopanistudio.com/">
-
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.mopanistudio.com/">
-    <meta property="og:title" content="Mopani Studio | Read the Site Before You Plant">
-    <meta property="og:description" content="Garden Site Readings, planting design and softscape establishment for residential properties near Ellenbrook, Western Australia.">
-    <meta property="og:image" content="https://www.mopanistudio.com/og-image.jpg">
-
-    <!-- 3. LocalBusiness Structured Data Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Mopani Studio",
-      "url": "https://www.mopanistudio.com",
-      "logo": "https://www.mopanistudio.com/logo.png",
-      "description": "Residential urban-greening, planting-design and softscape-establishment studio beginning with a Garden Site Reading.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressRegion": "WA",
-        "addressCountry": "AU"
-      },
-      "areaServed": "Residential properties generally within one hour by road of Ellenbrook, Western Australia",
-      "knowsAbout": [
-        "Garden site reading",
-        "Residential planting design",
-        "Softscape planting establishment",
-        "Plant selection",
-        "Urban greening education"
-      ]
-    }
-    </script>
-
-    <!-- 4. Styling and Fonts -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta property="og:title" content="Mopani Studio | Ellenbrook Garden Site Reading Pilot">
+    <meta property="og:description" content="Help test a one-hour Garden Site Reading and receive a digital report for your garden once the pilot method is finalised.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            main: '#e4e2dd',     /* Warm stone canvas */
-                            card: '#dcd9d3',     /* Section background tint */
-                            accent: '#792125',   /* Deep burgundy rust */
-                            accentHover: '#5e191c',
-                            dark: '#1c1b18',     /* Soft black text */
-                            muted: '#52504a',    /* Secondary copy */
-                            border: '#cac6bd'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                        serif: ['"Playfair Display"', 'serif']
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            background-color: #e4e2dd;
-            color: #1c1b18;
-        }
-        .glass-nav {
-            background: rgba(228, 226, 221, 0.88);
-            backdrop-filter: blur(12px);
-        }
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .accordion-content.open {
-            max-height: 760px;
-        }
-        :focus-visible {
-            outline: 3px solid #792125;
-            outline-offset: 4px;
-        }
-        .skip-link {
-            position: fixed;
-            left: 1rem;
-            top: -5rem;
-            z-index: 100;
-            background: #1c1b18;
-            color: #e4e2dd;
-            padding: 0.75rem 1rem;
-            border-radius: 9999px;
-        }
-        .skip-link:focus {
-            top: 1rem;
-        }
-        .evidence-story {
-            --story-cream: #f2eee6;
-            --story-muted: rgba(255, 255, 255, 0.72);
-            --story-line: rgba(255, 255, 255, 0.22);
-            --story-soft: rgba(255, 255, 255, 0.08);
-        }
-        .story-index {
-            display: grid;
-            grid-template-columns: repeat(6, minmax(0, 1fr));
-            border-top: 1px solid var(--story-line);
-            border-bottom: 1px solid var(--story-line);
-        }
-        .story-index-shell { position: relative; }
-        .story-index-cue { display: none; }
-        .story-index button {
-            min-height: 72px;
-            padding: 0.75rem;
-            border-right: 1px solid var(--story-line);
-            color: rgba(255, 255, 255, 0.58);
-            text-align: left;
-            transition: background-color 180ms ease, color 180ms ease;
-        }
-        .story-index button:last-child { border-right: 0; }
-        .story-index button[aria-selected="true"] {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .story-index button[aria-selected="true"] .story-index-line {
-            transform: scaleX(1);
-        }
-        .story-index-line {
-            display: block;
-            height: 2px;
-            margin-top: 0.6rem;
-            background: #fff;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 280ms ease;
-        }
-        .story-stage {
-            min-height: 620px;
-            display: grid;
-            grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-            gap: clamp(2rem, 6vw, 6rem);
-            align-items: center;
-            padding: clamp(3rem, 6vw, 5.5rem) 0 3rem;
-        }
-        .story-copy { max-width: 34rem; }
-        .story-kicker,
-        .story-status {
-            font-size: 0.7rem;
-            line-height: 1.4;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-        .story-status { color: var(--story-muted); }
-        .story-number {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(2.8rem, 6vw, 5.8rem);
-            line-height: 0.92;
-            letter-spacing: -0.04em;
-        }
-        .story-visual {
-            min-height: 390px;
-            border: 1px solid var(--story-line);
-            border-radius: 1.5rem;
-            background: var(--story-soft);
-            padding: clamp(1.25rem, 4vw, 2.5rem);
-            overflow: hidden;
-        }
-        .story-visual-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 1rem;
-            height: 100%;
-        }
-        .metric-card {
-            border: 1px solid var(--story-line);
-            border-radius: 1rem;
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 150px;
-            background: rgba(28, 27, 24, 0.12);
-        }
-        .metric-card.future { border-style: dashed; }
-        .metric-value {
-            font-family: "Playfair Display", serif;
-            font-size: clamp(2rem, 4vw, 4rem);
-            line-height: 1;
-        }
-        .metric-label { color: var(--story-muted); font-size: 0.75rem; line-height: 1.5; }
-        .bar-track {
-            height: 0.75rem;
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 999px;
-            overflow: hidden;
-        }
-        .bar-fill { height: 100%; background: #fff; border-radius: inherit; }
-        .bar-fill.future {
-            background: repeating-linear-gradient(90deg, #fff 0 8px, rgba(255,255,255,.25) 8px 13px);
-        }
-        .street {
-            position: relative;
-            min-height: 235px;
-            border-radius: 1rem;
-            overflow: hidden;
-            background: linear-gradient(#a84a41 0 45%, #452b29 45% 100%);
-        }
-        .street.shaded {
-            background: linear-gradient(#486e59 0 45%, #283a31 45% 100%);
-        }
-        .street::after {
-            content: "";
-            position: absolute;
-            left: 12%; right: 12%; bottom: 18%;
-            height: 4px;
-            background: rgba(255,255,255,.7);
-            box-shadow: 0 18px 0 rgba(255,255,255,.28);
-        }
-        .canopy {
-            position: absolute;
-            width: 110px; height: 85px;
-            left: 50%; top: 18%; transform: translateX(-50%);
-            border-radius: 52% 48% 45% 55%;
-            background: #76936d;
-            box-shadow: -32px 14px 0 #627d5c, 34px 12px 0 #89a17d;
-        }
-        .canopy::after {
-            content: "";
-            position: absolute;
-            width: 8px; height: 105px; left: 52%; top: 56%;
-            background: #d3b38d;
-        }
-        .water-column {
-            align-self: end;
-            border-radius: 1rem 1rem 0.3rem 0.3rem;
-            background: linear-gradient(to top, rgba(255,255,255,.92), rgba(255,255,255,.45));
-            min-height: 42px;
-        }
-        .person-line {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            gap: 1rem;
-            min-height: 230px;
-        }
-        .person-mark {
-            width: 94px; height: 94px; margin: 0 auto;
-            border: 1px solid var(--story-line);
-            border-radius: 50%;
-            display: grid; place-items: center;
-            font: 2.25rem "Playfair Display", serif;
-        }
-        .time-line {
-            position: relative;
-            height: 2px;
-            background: rgba(255,255,255,.34);
-        }
-        .time-line::after {
-            content: "";
-            position: absolute; right: 0; top: -4px;
-            width: 10px; height: 10px; border-radius: 50%; background: #fff;
-        }
-        .growth-track {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            align-items: end;
-            gap: 0.75rem;
-            min-height: 190px;
-        }
-        .growth-stage {
-            position: relative;
-            border-bottom: 2px solid rgba(255,255,255,.5);
-            min-height: 80px;
-        }
-        .growth-stage::before {
-            content: "";
-            position: absolute;
-            left: 50%; bottom: 0; transform: translateX(-50%);
-            width: var(--canopy); height: var(--canopy);
-            border-radius: 50% 45% 52% 48%;
-            background: rgba(171, 202, 149, .82);
-        }
-        .action-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 0.65rem;
-        }
-        .action-cell {
-            aspect-ratio: 1;
-            border: 1px solid var(--story-line);
-            border-radius: 0.55rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .action-cell.active::before {
-            content: "";
-            position: absolute;
-            width: 65%; height: 65%; left: 17%; top: 18%;
-            border-radius: 52% 48% 46% 54%;
-            background: #8fa47c;
-        }
-        .story-transition {
-            border-left: 2px solid rgba(255,255,255,.48);
-            padding-left: 1rem;
-            color: var(--story-muted);
-            font-family: "Playfair Display", serif;
-            font-style: italic;
-        }
-        .story-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            border-top: 1px solid var(--story-line);
-            padding: 1.25rem 0;
-        }
-        .story-control-button {
-            min-width: 44px;
-            min-height: 44px;
-            padding: 0.7rem 1rem;
-            border: 1px solid var(--story-line);
-            border-radius: 999px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-        .story-control-button:disabled { opacity: 0.35; cursor: not-allowed; }
-        .source-disclosure {
-            border-top: 1px solid var(--story-line);
-            color: var(--story-muted);
-        }
-        .source-disclosure summary {
-            min-height: 48px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            font-size: 0.72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            font-weight: 700;
-        }
-        .source-disclosure a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
-        .evidence-story:not(.story-ready) .story-index,
-        .evidence-story:not(.story-ready) .story-controls,
-        .evidence-story:not(.story-ready) .story-announcement { display: none; }
-        .evidence-story:not(.story-ready) .evidence-chapter + .evidence-chapter {
-            border-top: 1px solid var(--story-line);
-        }
-        @media (max-width: 899px) {
-            .story-index {
-                grid-template-columns: repeat(6, minmax(88px, 1fr));
-                overflow-x: auto;
-                scrollbar-width: none;
-            }
-            .story-index::-webkit-scrollbar { display: none; }
-            .story-index-cue {
-                position: absolute;
-                top: 1px;
-                right: 0;
-                bottom: 1px;
-                width: 52px;
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-                padding-right: 0.65rem;
-                color: rgba(255, 255, 255, 0.92);
-                background: linear-gradient(90deg, rgba(121, 33, 37, 0), #792125 72%);
-                pointer-events: none;
-                transition: opacity 160ms ease;
-            }
-            .story-index-shell.at-end .story-index-cue {
-                opacity: 0;
-            }
-            .story-index button { min-height: 62px; }
-            .story-index-label { display: none; }
-            .story-stage { grid-template-columns: 1fr; min-height: 0; gap: 2rem; padding-top: 3rem; }
-            .story-copy { max-width: none; }
-            .story-visual { min-height: 330px; }
-            .story-visual-grid { grid-template-columns: 1fr; }
-            .street { min-height: 170px; }
-            .person-line { grid-template-columns: 1fr; min-height: 0; }
-            .time-line { height: 80px; width: 2px; margin: 0 auto; }
-            .time-line::after { right: -4px; top: auto; bottom: 0; }
-            .action-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .story-index-line, .story-index button, .story-index-cue { transition: none; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="pilot.js" defer></script>
 </head>
-<body class="font-sans antialiased selection:bg-brand-accent selection:text-white">
-    <a class="skip-link" href="#main-content">Skip to main content</a>
-
-    <!-- NAVIGATION HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-40 glass-nav border-b border-brand-border/60 transition-all">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#main-content" class="flex items-center gap-3 group" aria-label="Mopani Studio home">
-                <span class="w-3 h-3 rounded-full bg-brand-accent group-hover:scale-125 transition-transform"></span>
-                <span class="font-semibold text-base sm:text-lg tracking-wider uppercase whitespace-nowrap">mopani studio</span>
-            </a>
-
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
-                <a href="#services" class="hover:text-brand-accent transition-colors">Services</a>
-                <a href="#method" class="hover:text-brand-accent transition-colors">Method</a>
-                <a href="#vision" class="hover:text-brand-accent transition-colors">2050 Vision</a>
-                <a href="#journal" class="hover:text-brand-accent transition-colors">Journal</a>
-                <a href="#about" class="hover:text-brand-accent transition-colors">About</a>
-                <a href="garden-site-reading/" class="hover:text-brand-accent transition-colors">Site Reading</a>
-            </nav>
-
-            <a href="garden-site-reading/" class="hidden sm:inline-flex px-5 py-2.5 bg-brand-accent text-white text-xs font-semibold tracking-wider uppercase rounded-full hover:bg-brand-accentHover transition-colors shadow-sm">
-                Request a Site Reading
-            </a>
-            <button id="mobile-menu-button" type="button" class="md:hidden w-11 h-11 rounded-full border border-brand-border flex items-center justify-center" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation">
-                <i class="fa-solid fa-bars" aria-hidden="true"></i>
-            </button>
-        </div>
-        <nav id="mobile-menu" class="hidden md:hidden border-t border-brand-border bg-brand-main px-6 py-5" aria-label="Mobile navigation">
-            <div class="flex flex-col gap-4 text-sm font-medium">
-                <a href="#services">Services</a>
-                <a href="#method">Method</a>
+<body>
+    <a class="skip" href="#main-content">Skip to main content</a>
+    <header class="header">
+        <div class="wrap">
+            <a class="brand" href="./">Mopani Studio</a>
+            <nav class="nav" aria-label="Main">
+                <a href="#pilot">Garden pilot</a>
                 <a href="#vision">2050 Vision</a>
-                <a href="#journal">Journal</a>
                 <a href="#about">About</a>
-                <a href="garden-site-reading/" class="mt-2 text-center px-5 py-3 bg-brand-accent text-white text-xs font-semibold tracking-wider uppercase rounded-full">Request a Site Reading</a>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
-
-    <main id="main-content" class="pt-20">
-
-        <!-- HERO SECTION -->
-        <section class="py-24 md:py-32 px-6 border-b border-brand-border">
-            <div class="max-w-5xl mx-auto text-center">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-border bg-brand-card/50 text-xs font-semibold tracking-widest uppercase mb-8">
-                    <span class="w-2 h-2 rounded-full bg-brand-accent"></span>
-                    Residential urban greening · Ellenbrook and surrounding areas
+    <main id="main-content" tabindex="-1">
+        <section class="hero" aria-labelledby="intro-title">
+            <div class="wrap">
+                <p class="eyebrow">Ellenbrook garden pilot</p>
+                <h1 id="intro-title">Read your garden<br> <em>before you plant.</em></h1>
+                <p>Mopani Studio helps households understand their outdoor spaces and find practical ways to grow more greenery. I’m inviting Ellenbrook residents to help test the first Garden Site Readings.</p>
+                <a class="button" href="#pilot">Register your interest</a>
+            </div>
+        </section>
+        <section id="pilot" class="section pilot" aria-labelledby="pilot-title">
+            <div class="wrap columns">
+                <div class="pilot-copy">
+                    <p class="eyebrow">Garden Site Reading</p>
+                    <h2 id="pilot-title">Help test it in your garden.</h2>
+                    <p>I’m looking for a mix of gardens, from newly built blocks and small courtyards to established yards. I’ll start with how you move through your garden, then look at sun, shade, existing plants and where new planting could fit.</p>
+                    <ul>
+                        <li><strong>One visit of about an hour, at no charge.</strong> If selected, we’ll agree on a time and talk through access before the visit.</li>
+                        <li><strong>A digital report for your property, at no charge.</strong> You’ll receive it once the pilot method is finalised. I’ll share the expected timing before you agree to take part.</li>
+                        <li><strong>Optional printed copy.</strong> A printed copy is available at an additional cost, agreed before ordering.</li>
+                    </ul>
+                    <p class="note">I’ll review expressions of interest and follow up by email. Registering your interest starts a conversation. Visits are arranged separately.</p>
                 </div>
-                
-                <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-normal leading-tight tracking-tight mb-8">
-                    Read the site. Design the planting. <br>
-                    <span class="italic font-normal text-brand-accent">Establish</span> what belongs there.
-                </h1>
-
-                <p class="text-lg sm:text-xl text-brand-muted max-w-3xl mx-auto leading-relaxed mb-12">
-                    <strong class="text-brand-dark">Mopani Studio</strong> is a residential softscape urban-greening studio. We read the property first, design a site-specific planting system where appropriate, and help residents understand and establish the greenery they are bringing into their lives.
-                </p>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="garden-site-reading/" class="w-full sm:w-auto px-8 py-4 bg-brand-dark text-brand-main text-sm font-semibold tracking-wider uppercase rounded-full hover:bg-brand-accent transition-colors">
-                        Request a Site Reading <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                    </a>
-                    <a href="#method" class="w-full sm:w-auto px-8 py-4 border border-brand-dark/30 text-brand-dark text-sm font-semibold tracking-wider uppercase rounded-full hover:bg-brand-card transition-colors">
-                        Understand the Method
-                    </a>
+                <div class="form">
+                    <h3>Register your interest</h3>
+                    <p id="email-help" class="note">Fill in the short form to open an email draft. Send the draft to complete your expression of interest.</p>
+                    <p id="email-fallback" class="note"><a href="mailto:hello@mopanistudio.com?subject=Ellenbrook%20garden%20pilot">Email hello@mopanistudio.com directly</a> with your name, suburb, garden type and what you’d like to understand about it.</p>
+                    <form id="pilot-form" aria-describedby="email-help" hidden>
+                        <div class="field">
+                            <label for="pilot-name">Name</label>
+                            <input id="pilot-name" name="name" autocomplete="name" maxlength="100" required>
+                        </div>
+                        <div class="field">
+                            <label for="pilot-suburb">Suburb</label>
+                            <input id="pilot-suburb" name="suburb" autocomplete="address-level2" maxlength="80" required>
+                        </div>
+                        <div class="field">
+                            <label for="pilot-garden">Garden type</label>
+                            <select id="pilot-garden" name="garden" required>
+                                <option value="">Choose one</option>
+                                <option>Established garden</option>
+                                <option>New build or mostly bare block</option>
+                                <option>Courtyard, balcony or small garden</option>
+                                <option>Other or unsure</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label for="pilot-goal">What would you like to understand? <span class="note">(optional)</span></label>
+                            <textarea id="pilot-goal" name="goal" rows="3" maxlength="350" aria-describedby="pilot-details"></textarea>
+                            <p class="note" id="pilot-details">Please leave out street addresses and photos at this stage.</p>
+                        </div>
+                        <div class="check">
+                            <input id="pilot-contact" type="checkbox" required>
+                            <label class="note" for="pilot-contact">Mopani Studio may use this information to contact me about the pilot.</label>
+                        </div>
+                        <div class="actions">
+                            <button type="submit" class="button">Open email draft</button>
+                            <a class="note" href="privacy.html">Privacy notice</a>
+                        </div>
+                        <p class="form-feedback note" id="draft-status" role="status"></p>
+                        <div class="form-feedback" id="draft-copy" hidden>
+                            <label class="note" for="draft-text">Copy this message if your email app didn’t open.</label>
+                            <textarea id="draft-text" readonly></textarea>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
-
-        <!-- 2050 URBAN GREENING EVIDENCE STORY -->
-        <section id="vision" class="evidence-story bg-brand-accent text-white px-6 py-20" aria-labelledby="vision-title" aria-roledescription="urban greening story">
-            <div class="max-w-7xl mx-auto">
-                <header class="max-w-4xl mb-12 md:mb-16">
-                    <span class="story-kicker text-white/70 block mb-4">Mopani Studio’s 2050 urban greening mission</span>
-                    <h2 id="vision-title" class="font-serif text-4xl sm:text-5xl md:text-6xl leading-tight">Why Perth and Peel need to urban-green now.</h2>
-                    <p class="text-white/80 mt-6 text-base sm:text-lg leading-relaxed max-w-3xl">
-                        Perth and Peel are growing into a hotter, drier future. Roads and buildings can be added quickly; established shade, healthy roots and habitat cannot. Urban greening now gives trees, gardens and neighbourhoods time to become stronger before 2050.
-                    </p>
-                </header>
-
-                <div class="story-index-shell">
-                    <div class="story-index" role="tablist" aria-label="2050 urban greening chapters">
-                        <button type="button" role="tab" aria-selected="true" data-story-target="0"><span class="block font-serif text-xl">01</span><span class="story-index-label text-[10px] uppercase tracking-widest">Growth</span><span class="story-index-line"></span></button>
-                        <button type="button" role="tab" aria-selected="false" data-story-target="1"><span class="block font-serif text-xl">02</span><span class="story-index-label text-[10px] uppercase tracking-widest">Heat</span><span class="story-index-line"></span></button>
-                        <button type="button" role="tab" aria-selected="false" data-story-target="2"><span class="block font-serif text-xl">03</span><span class="story-index-label text-[10px] uppercase tracking-widest">Water</span><span class="story-index-line"></span></button>
-                        <button type="button" role="tab" aria-selected="false" data-story-target="3"><span class="block font-serif text-xl">04</span><span class="story-index-label text-[10px] uppercase tracking-widest">People</span><span class="story-index-line"></span></button>
-                        <button type="button" role="tab" aria-selected="false" data-story-target="4"><span class="block font-serif text-xl">05</span><span class="story-index-label text-[10px] uppercase tracking-widest">Time</span><span class="story-index-line"></span></button>
-                        <button type="button" role="tab" aria-selected="false" data-story-target="5"><span class="block font-serif text-xl">06</span><span class="story-index-label text-[10px] uppercase tracking-widest">Action</span><span class="story-index-line"></span></button>
-                    </div>
-                    <div class="story-index-cue" aria-hidden="true"><span class="font-serif text-2xl">→</span></div>
+        <section id="vision" class="section vision" aria-labelledby="vision-title">
+            <div class="wrap">
+                <p class="eyebrow">2050 Vision</p>
+                <h2 id="vision-title">Give Perth’s gardens time to grow.</h2>
+                <p class="lead">Roads and roofs can go in quickly. Shade, healthy soil and habitat take growing seasons. Mopani Studio’s vision for 2050 is a Perth and Peel where more households know how to grow and care for the greenery their neighbourhoods need.</p>
+                <div class="vision-grid">
+                    <article><h3>Make room for greenery</h3><p>As neighbourhoods grow, space for trees and smaller plantings needs to be considered alongside buildings, paths and services.</p></article>
+                    <article><h3>Put shade where people use it</h3><p>Start with the places you walk, pause or sit. Look at where shade falls in the afternoon and how that changes with the season.</p></article>
+                    <article><h3>Plant for the water we have</h3><p>South-west Australia’s April–October rainfall has declined by about 16% since 1970. Choose plants that suit the site and plan how you’ll water them while they establish.</p></article>
+                    <article><h3>Grow habitat at home</h3><p>Keep useful existing vegetation where it suits the site. Add layers of planting and aim for flowers across different seasons.</p></article>
+                    <article><h3>Start while there’s time</h3><p>WA aims to plant one million trees by 2035 and reach 30% tree canopy cover in Perth by 2040. What we plant and keep alive today has time to mature.</p></article>
+                    <article><h3>Take one useful step</h3><p>Start with one exposed path, one bare bed or one place you already enjoy. Choose a change your household can care for through its first summer.</p></article>
                 </div>
-
-                <div class="story-announcement sr-only" aria-live="polite" aria-atomic="true"></div>
-
-                <article class="evidence-chapter" data-story-chapter="0" aria-labelledby="story-title-1">
-                    <div class="story-stage">
-                        <div class="story-copy">
-                            <span class="story-status">Planning horizon · Perth and Peel</span>
-                            <h3 id="story-title-1" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">Perth and Peel are planning for one million more people—and the shade they will need.</h3>
-                            <p class="text-white/80 leading-relaxed mb-6">Perth and Peel are being planned for about 3.5 million people around 2050. How new neighbourhoods are planted will shape how much heat, shade and biodiversity residents live with.</p>
-                            <p class="story-transition">More urban growth makes urban greening more important, not less.</p>
-                        </div>
-                        <div class="story-visual" role="img" aria-label="Perth and Peel population planning horizon rises from about 2.46 million people in 2025 to 3.5 million around 2050, an increase of about 1.04 million people or 42.3 percent.">
-                            <div class="story-visual-grid">
-                                <div class="metric-card">
-                                    <span class="metric-label">2025 population</span><strong class="metric-value">2.46m</strong><div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
-                                </div>
-                                <div class="metric-card future">
-                                    <span class="metric-label">Around 2050 · planning scenario</span><strong class="metric-value">3.5m</strong><div class="bar-track"><div class="bar-fill future" style="width:100%"></div></div>
-                                </div>
-                                <div class="metric-card col-span-full">
-                                    <span class="metric-label">Physical growth being planned</span><strong class="font-serif text-3xl sm:text-4xl">800,000 additional homes</strong><span class="metric-label">+1.04 million people / +42.3% derived from the two population figures</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> planning scenario and derived comparison—not a guaranteed population forecast.</p><p class="mt-2"><a href="https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage/perth-and-peel35million">WA Government · Perth and Peel@3.5million</a> · <a href="https://www.wa.gov.au/government/document-collections/perth-and-peel35million-health-check">2026 Health Check</a></p></div></details>
-                </article>
-
-                <article class="evidence-chapter" data-story-chapter="1" aria-labelledby="story-title-2">
-                    <div class="story-stage">
-                        <div class="story-copy">
-                            <span class="story-status">Projected extreme heat · Perth</span>
-                            <h3 id="story-title-2" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">A hotter city needs more shade built into everyday life.</h3>
-                            <p class="text-white/80 leading-relaxed mb-6">Roads, roofs, paving and car parks absorb heat and release it slowly. Trees and plants interrupt that heat through shade and transpiration. Urban greening is how neighbourhoods reduce avoidable heat exposure as the climate warms.</p>
-                            <p class="story-transition">The places that are planted now have time to become the cooler places people will need later.</p>
-                        </div>
-                        <div class="story-visual" role="img" aria-label="Under the cited high-emissions projection, Perth days above 40 degrees Celsius rise from about 1.5 per year in 1981 to 2010 to about 5 per year in 2036 to 2065. A shaded street interrupts heat held by hard surfaces.">
-                            <div class="grid grid-cols-2 gap-3 mb-4">
-                                <div class="street"><span class="absolute z-10 left-4 top-4 text-xs font-bold uppercase tracking-widest">Hard surface</span></div>
-                                <div class="street shaded"><span class="absolute z-10 left-4 top-4 text-xs font-bold uppercase tracking-widest">Tree shade</span><span class="canopy" aria-hidden="true"></span></div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-3">
-                                <div class="metric-card"><span class="metric-label">1981–2010</span><strong class="font-serif text-3xl">~1.5 days</strong><span class="metric-label">above 40°C each year</span></div>
-                                <div class="metric-card future"><span class="metric-label">2036–2065 · high-emissions projection</span><strong class="font-serif text-3xl">~5 days</strong><span class="metric-label">above 40°C each year</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> scenario-dependent projection. The street graphic explains the heat mechanism; it is not a measured temperature comparison.</p><p class="mt-2"><a href="https://www.climatechangeinaustralia.gov.au/en/changing-climate/state-climate-statements/western-australia/">CSIRO and Bureau of Meteorology · Western Australia climate statement</a> · <a href="https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage/urban-greening-strategy">WA Urban Greening Strategy</a></p></div></details>
-                </article>
-
-                <article class="evidence-chapter" data-story-chapter="2" aria-labelledby="story-title-3">
-                    <div class="story-stage">
-                        <div class="story-copy">
-                            <span class="story-status">Observed change · Perth water</span>
-                            <h3 id="story-title-3" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">Urban greening must fit the water climate Perth has now.</h3>
-                            <p class="text-white/80 leading-relaxed mb-6">Perth already receives less rain and far less water reaches its dams. The answer is not to abandon greenery. It is to establish waterwise plants, improve soil, retain shade and use water intelligently.</p>
-                            <p class="story-transition">A waterwise garden and a greener city are part of the same response.</p>
-                        </div>
-                        <div class="story-visual" role="img" aria-label="Perth average annual rainfall has fallen by around 15 percent since the 1970s. Average annual streamflow into Perth dams fell from 420 billion litres before 1975 to 75 billion litres in 2010 to 2024.">
-                            <div class="metric-card mb-4"><span class="metric-label">Average annual rainfall since the 1970s</span><strong class="story-number">−15%</strong><div class="bar-track mt-4"><div class="bar-fill" style="width:85%"></div></div></div>
-                            <div class="grid grid-cols-2 gap-4 items-end h-52">
-                                <div class="flex flex-col h-full justify-end text-center"><strong class="font-serif text-3xl mb-2">420bn L</strong><div class="water-column" style="height:100%"></div><span class="metric-label mt-2">Before 1975</span></div>
-                                <div class="flex flex-col h-full justify-end text-center"><strong class="font-serif text-3xl mb-2">75bn L</strong><div class="water-column" style="height:18%"></div><span class="metric-label mt-2">2010–2024</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> historical observation. Dam streamflow is not the same as total household water availability; Perth’s drinking-water supply is now diversified.</p><p class="mt-2"><a href="https://www.watercorporation.com.au/our-water/our-water-future/our-water-and-perth">Water Corporation · Our water and Perth</a></p></div></details>
-                </article>
-
-                <article class="evidence-chapter" data-story-chapter="3" aria-labelledby="story-title-4">
-                    <div class="story-stage">
-                        <div class="story-copy">
-                            <span class="story-status">Modelled health rate · Perth</span>
-                            <h3 id="story-title-4" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">The heat we leave behind is the heat we will age in.</h3>
-                            <p class="text-white/80 leading-relaxed mb-6">Under the WA Health report’s RCP4.5 scenario, Perth’s heat-related death rate rises by 61.4% by the 2050s. People over 75 and those susceptible to cardiovascular disease are projected to be most affected.</p>
-                            <p class="story-transition">Urban greening is not only about how a suburb looks. It changes the conditions people move, rest and grow older in.</p>
-                        </div>
-                        <div class="story-visual" role="img" aria-label="Perth heat-related mortality rate is modelled to rise from 5.29 deaths per 100,000 in the 2010s to 8.54 per 100,000 in the 2050s under the RCP4.5 scenario, a 61.4 percent rise.">
-                            <div class="text-center mb-6"><span class="metric-label">Modelled rate change</span><div class="story-number mt-2">+61.4%</div></div>
-                            <div class="person-line">
-                                <div class="text-center"><div class="person-mark">5.29</div><span class="metric-label block mt-3">2010s · deaths per 100,000</span></div>
-                                <div class="time-line" aria-hidden="true"></div>
-                                <div class="text-center"><div class="person-mark border-dashed">8.54</div><span class="metric-label block mt-3">2050s · RCP4.5 projection</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> modelled rate, not a certain future death count. It must remain attached to the scenario, period and per-100,000 unit.</p><p class="mt-2"><a href="https://www.health.wa.gov.au/~/media/Corp/Documents/Reports-and-publications/Climate-change-heat-related-health-impacts/Projecting-heat-related-health-impacts-under-climate-change-in-Perth_Final.pdf">WA Department of Health · Projecting heat-related health impacts under climate change in Perth</a></p></div></details>
-                </article>
-
-                <article class="evidence-chapter" data-story-chapter="4" aria-labelledby="story-title-5">
-                    <div class="story-stage">
-                        <div class="story-copy">
-                            <span class="story-status">Policy targets + time available</span>
-                            <h3 id="story-title-5" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">Shade cannot be planted at the last minute.</h3>
-                            <p class="text-white/80 leading-relaxed mb-6">A road can be paved quickly. Roots, canopy, healthier soil and habitat develop over seasons. Perth and Peel have 24 growing years before 2050. Every year urban greening is delayed is one fewer year available for plants to establish.</p>
-                            <p class="story-transition">The easiest time to start building future shade is while we still have time for it to grow.</p>
-                        </div>
-                        <div class="story-visual" role="img" aria-label="There are 24 years from 2026 to 2050. State policy targets include one million trees by 2035 and 30 percent Perth tree canopy by 2040. Plants establish and develop over time rather than appearing instantly.">
-                            <div class="flex justify-between items-baseline mb-8"><span class="font-serif text-3xl">2026</span><strong class="story-number">24 years</strong><span class="font-serif text-3xl">2050</span></div>
-                            <div class="growth-track" aria-hidden="true">
-                                <div class="growth-stage" style="--canopy:24px"></div><div class="growth-stage" style="--canopy:52px"></div><div class="growth-stage" style="--canopy:90px"></div><div class="growth-stage" style="--canopy:138px"></div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-3 mt-5"><div class="metric-card"><span class="metric-label">2035 target</span><strong class="font-serif text-2xl">1 million trees</strong></div><div class="metric-card"><span class="metric-label">2040 Perth target</span><strong class="font-serif text-2xl">30% canopy</strong></div></div>
-                        </div>
-                    </div>
-                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> 24 years is calendar time available, not a universal plant-maturity claim. The 2035 and 2040 figures are policy targets, not achieved outcomes.</p><p class="mt-2"><a href="https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage/urban-greening-strategy">WA Urban Greening Strategy</a> · <a href="https://www.wa.gov.au/media/158067/download?inline=">Let’s Grow Action Plan 2026–2030</a></p></div></details>
-                </article>
-
-                <article class="evidence-chapter" data-story-chapter="5" aria-labelledby="story-title-6">
-                    <div class="story-stage">
-                        <div class="story-copy">
-                            <span class="story-status">Shared action · public and private land</span>
-                            <h3 id="story-title-6" class="font-serif text-3xl sm:text-5xl leading-tight mt-4 mb-6">Make urban greening part of how Perth lives.</h3>
-                            <p class="text-white/80 leading-relaxed mb-6">Urban greening is not one planting day. It is the continuing work of retaining, planting and caring for greenery across homes, streets and neighbourhoods. Government, industry and residents each hold part of the work.</p>
-                            <p class="font-serif text-2xl sm:text-3xl italic mb-7">Stop. Look around. What could begin growing here?</p>
-                            <p class="text-white/80 leading-relaxed mb-7">At home, the first step is to understand what your property can support. Mopani Studio reads the site, designs appropriate planting and helps residents establish it correctly—so urban greening becomes a practical skill, not a good intention.</p>
-                            <a href="garden-site-reading/" class="inline-flex px-6 py-3 bg-white text-brand-accent text-xs font-bold tracking-wider uppercase rounded-full hover:bg-brand-main transition-colors">Begin with a Garden Site Reading <i class="fa-solid fa-arrow-right ml-2 mt-0.5" aria-hidden="true"></i></a>
-                        </div>
-                        <div class="story-visual" role="img" aria-label="A regional grid fills gradually with many small areas of established greenery, representing shared urban greening across homes, streets and public land rather than one instant transformation.">
-                            <p class="story-kicker text-white/70 mb-6">One region · many places to begin</p>
-                            <div class="action-grid" aria-hidden="true">
-                                <span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell"></span><span class="action-cell active"></span>
-                                <span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell"></span>
-                                <span class="action-cell active"></span><span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell"></span>
-                                <span class="action-cell"></span><span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell"></span><span class="action-cell active"></span><span class="action-cell active"></span>
-                            </div>
-                            <div class="mt-8 pt-6 border-t border-white/20 grid grid-cols-3 gap-3 text-center"><span class="metric-label">Homes</span><span class="metric-label">Streets</span><span class="metric-label">Public land</span></div>
-                        </div>
-                    </div>
-                    <details class="source-disclosure py-1"><summary>Sources &amp; how to read this</summary><div class="pb-5 text-sm leading-relaxed"><p><strong class="text-white">Status:</strong> shared-responsibility policy direction plus Mopani Studio’s proportionate household pathway. A resident’s action matters but does not replace government or industry responsibility.</p><p class="mt-2"><a href="https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage/urban-greening-strategy">WA Urban Greening Strategy</a> · <a href="https://www.wa.gov.au/media/158067/download?inline=">Let’s Grow Action Plan 2026–2030</a></p></div></details>
-                </article>
-
-                <div class="story-controls" aria-label="Evidence story controls">
-                    <button type="button" id="story-prev" class="story-control-button" aria-label="Previous chapter"><i class="fa-solid fa-arrow-left mr-2" aria-hidden="true"></i> Previous</button>
-                    <span id="story-count" class="story-status">01 / 06 · Growth</span>
-                    <button type="button" id="story-next" class="story-control-button" aria-label="Next chapter">Next <i class="fa-solid fa-arrow-right ml-2" aria-hidden="true"></i></button>
-                </div>
+                <p class="sources">Sources: <a href="https://www.csiro.au/en/research/environmental-impacts/climate-change/state-of-the-climate/australias-changing-climate">Bureau of Meteorology and CSIRO, State of the Climate</a> · <a href="https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage/urban-greening-strategy">WA Urban Greening Strategy</a></p>
             </div>
         </section>
-
-        <!-- SERVICES -->
-        <section id="services" class="py-24 px-6 border-b border-brand-border">
-            <div class="max-w-7xl mx-auto">
-                <div class="max-w-3xl mb-14">
-                    <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">What the studio does</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl mb-6">A planting-led landscape practice.</h2>
-                    <p class="text-brand-muted leading-relaxed">The service begins with evidence from the property—not a shopping list or a free quote. Each later stage is separate, considered and entered only when it is appropriate for the site and the client.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <article class="p-8 rounded-2xl border border-brand-border bg-brand-card/40">
-                        <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent">01 · Entry service</span>
-                        <h3 class="font-serif text-2xl mt-4 mb-3">Garden Site Reading</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">A 60-minute on-property reading of sun path, exposure, existing vegetation and simple soil-hydration conditions, followed by a printed and digital report.</p>
-                    </article>
-                    <article class="p-8 rounded-2xl border border-brand-border bg-brand-card/40">
-                        <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent">02 · By invitation</span>
-                        <h3 class="font-serif text-2xl mt-4 mb-3">Planting Design</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">A site-specific planting system developed after the property has been read: placement, species logic, quantities and establishment requirements before plants are purchased.</p>
-                    </article>
-                    <article class="p-8 rounded-2xl border border-brand-border bg-brand-card/40">
-                        <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent">03 · Approved plans</span>
-                        <h3 class="font-serif text-2xl mt-4 mb-3">Planting Establishment</h3>
-                        <p class="text-sm text-brand-muted leading-relaxed">Guided nursery selection, softscape installation and practical education. Client presence is part of the method; physical planting is optional and limited to suitable low-risk activity.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- GOVERNED CLIENT JOURNEY -->
-        <section id="method" class="py-24 px-6 border-b border-brand-border">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-                    <div>
-                        <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Read before design</span>
-                        <h2 class="font-serif text-3xl sm:text-5xl">The governed client journey.</h2>
-                    </div>
-                    <p class="text-brand-muted max-w-md text-sm leading-relaxed">
-                        Observation comes first. The plan is approved before the nursery. Plants are selected before they are established. At every stage, the client knows what is being decided and why.
-                    </p>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="border border-brand-border rounded-2xl bg-brand-card/40 overflow-hidden">
-                        <button type="button" onclick="toggleAccordion('step1')" class="w-full px-6 sm:px-8 py-6 text-left flex items-center justify-between gap-4" aria-expanded="false" aria-controls="step1">
-                            <div class="flex items-center gap-6">
-                                <span class="font-serif text-2xl text-brand-accent font-semibold">01</span>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Read the property</h3>
-                                    <p class="text-xs text-brand-muted">Garden Site Reading · 60 minutes</p>
-                                </div>
-                            </div>
-                            <i id="icon-step1" class="fa-solid fa-plus text-brand-accent transition-transform" aria-hidden="true"></i>
-                        </button>
-                        <div id="step1" class="accordion-content px-6 sm:px-8 pb-6 text-sm text-brand-muted leading-relaxed">
-                            <p class="pt-2 border-t border-brand-border/60">
-                                The studio observes sun path, exposure, existing vegetation and simple soil-hydration conditions. This is site orientation—not laboratory soil testing, arboricultural assessment, engineering advice or a planting-design workshop.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="border border-brand-border rounded-2xl bg-brand-card/40 overflow-hidden">
-                        <button type="button" onclick="toggleAccordion('step2')" class="w-full px-6 sm:px-8 py-6 text-left flex items-center justify-between gap-4" aria-expanded="false" aria-controls="step2">
-                            <div class="flex items-center gap-6">
-                                <span class="font-serif text-2xl text-brand-accent font-semibold">02</span>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Receive the property record</h3>
-                                    <p class="text-xs text-brand-muted">Printed and digital report · within 14 days</p>
-                                </div>
-                            </div>
-                            <i id="icon-step2" class="fa-solid fa-plus text-brand-accent transition-transform" aria-hidden="true"></i>
-                        </button>
-                        <div id="step2" class="accordion-content px-6 sm:px-8 pb-6 text-sm text-brand-muted leading-relaxed">
-                            <p class="pt-2 border-t border-brand-border/60">
-                                The Garden Conditions &amp; Planting Opportunity Report records seasonal conditions, areas of opportunity and an annotated planting-opportunity plan. It is designed to remain useful even when the client does not commission a planting design.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="border border-brand-border rounded-2xl bg-brand-card/40 overflow-hidden">
-                        <button type="button" onclick="toggleAccordion('step3')" class="w-full px-6 sm:px-8 py-6 text-left flex items-center justify-between gap-4" aria-expanded="false" aria-controls="step3">
-                            <div class="flex items-center gap-6">
-                                <span class="font-serif text-2xl text-brand-accent font-semibold">03</span>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Choose whether to continue</h3>
-                                    <p class="text-xs text-brand-muted">Separate design invitation and agreement</p>
-                                </div>
-                            </div>
-                            <i id="icon-step3" class="fa-solid fa-plus text-brand-accent transition-transform" aria-hidden="true"></i>
-                        </button>
-                        <div id="step3" class="accordion-content px-6 sm:px-8 pb-6 text-sm text-brand-muted leading-relaxed">
-                            <p class="pt-2 border-t border-brand-border/60">
-                                A Site Reading does not automatically become a design project. Suitable clients who want to proceed may be invited into a separate design-direction, proposal and agreement process before design work begins.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="border border-brand-border rounded-2xl bg-brand-card/40 overflow-hidden">
-                        <button type="button" onclick="toggleAccordion('step4')" class="w-full px-6 sm:px-8 py-6 text-left flex items-center justify-between gap-4" aria-expanded="false" aria-controls="step4">
-                            <div class="flex items-center gap-6">
-                                <span class="font-serif text-2xl text-brand-accent font-semibold">04</span>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Approve the planting system</h3>
-                                    <p class="text-xs text-brand-muted">Design before purchasing</p>
-                                </div>
-                            </div>
-                            <i id="icon-step4" class="fa-solid fa-plus text-brand-accent transition-transform" aria-hidden="true"></i>
-                        </button>
-                        <div id="step4" class="accordion-content px-6 sm:px-8 pb-6 text-sm text-brand-muted leading-relaxed">
-                            <p class="pt-2 border-t border-brand-border/60">
-                                Placement, species logic, quantities and establishment requirements are resolved and approved before the nursery visit. The nursery is not where the garden is designed from whatever happens to be on the shelf.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="border border-brand-border rounded-2xl bg-brand-card/40 overflow-hidden">
-                        <button type="button" onclick="toggleAccordion('step5')" class="w-full px-6 sm:px-8 py-6 text-left flex items-center justify-between gap-4" aria-expanded="false" aria-controls="step5">
-                            <div class="flex items-center gap-6">
-                                <span class="font-serif text-2xl text-brand-accent font-semibold">05</span>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Select approved plants</h3>
-                                    <p class="text-xs text-brand-muted">Guided nursery session</p>
-                                </div>
-                            </div>
-                            <i id="icon-step5" class="fa-solid fa-plus text-brand-accent transition-transform" aria-hidden="true"></i>
-                        </button>
-                        <div id="step5" class="accordion-content px-6 sm:px-8 pb-6 text-sm text-brand-muted leading-relaxed">
-                            <p class="pt-2 border-t border-brand-border/60">The client joins the studio to select stock from the approved plan and learn how size, growth habit and visible root condition affect the choice. Participation is educational and decision-based.</p>
-                        </div>
-                    </div>
-
-                    <div class="border border-brand-border rounded-2xl bg-brand-card/40 overflow-hidden">
-                        <button type="button" onclick="toggleAccordion('step6')" class="w-full px-6 sm:px-8 py-6 text-left flex items-center justify-between gap-4" aria-expanded="false" aria-controls="step6">
-                            <div class="flex items-center gap-6">
-                                <span class="font-serif text-2xl text-brand-accent font-semibold">06</span>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Establish the softscape</h3>
-                                    <p class="text-xs text-brand-muted">Installation and site-specific learning</p>
-                                </div>
-                            </div>
-                            <i id="icon-step6" class="fa-solid fa-plus text-brand-accent transition-transform" aria-hidden="true"></i>
-                        </button>
-                        <div id="step6" class="accordion-content px-6 sm:px-8 pb-6 text-sm text-brand-muted leading-relaxed">
-                            <p class="pt-2 border-t border-brand-border/60">Mopani Studio installs and establishes the approved planting plan on an installation-ready site. Client presence is part of the learning method. Physical participation is optional and limited to low-risk activity approved by the studio.</p>
-                        </div>
-                    </div>
-
-                    <div class="border border-brand-border rounded-2xl bg-brand-card/40 overflow-hidden">
-                        <button type="button" onclick="toggleAccordion('step7')" class="w-full px-6 sm:px-8 py-6 text-left flex items-center justify-between gap-4" aria-expanded="false" aria-controls="step7">
-                            <div class="flex items-center gap-6">
-                                <span class="font-serif text-2xl text-brand-accent font-semibold">07</span>
-                                <div>
-                                    <h3 class="text-lg font-semibold">Follow a defined establishment plan</h3>
-                                    <p class="text-xs text-brand-muted">No vague promise of indefinite maintenance</p>
-                                </div>
-                            </div>
-                            <i id="icon-step7" class="fa-solid fa-plus text-brand-accent transition-transform" aria-hidden="true"></i>
-                        </button>
-                        <div id="step7" class="accordion-content px-6 sm:px-8 pb-6 text-sm text-brand-muted leading-relaxed">
-                            <p class="pt-2 border-t border-brand-border/60">The agreed handover explains the immediate establishment requirements. Any later review or support is defined and priced separately before it is promised.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-12 p-6 sm:p-8 rounded-2xl border border-brand-border bg-brand-main">
-                    <p class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-3">Softscape boundary</p>
-                    <p class="text-sm text-brand-muted leading-relaxed">Mopani Studio does not provide mowing, weeding, routine maintenance, demolition, structural landscaping, retaining walls, paving, decking, fencing, major earthworks, irrigation alteration, electrical or drainage work, pesticide or herbicide application, tree removal, substantial pruning, work at height, or specialist arboricultural, engineering or laboratory-soil advice.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- JOURNAL & ARTICLES SECTION -->
-        <section id="journal" class="py-24 px-6 border-b border-brand-border">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-4">
-                    <div>
-                        <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">The journal</span>
-                        <h2 class="font-serif text-3xl sm:text-5xl">Learn to read a Perth garden.</h2>
-                    </div>
-                    <p class="text-brand-muted text-sm max-w-md">
-                        Four editorial pillars connect household questions to site interpretation, planting design, establishment and the wider 2050 horizon.
-                    </p>
-                </div>
-
-                <!-- Articles Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <button type="button" onclick="openArticleModal('article1')" aria-haspopup="dialog" class="text-left border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-all hover:-translate-y-1 group">
-                        <div>
-                            <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Site reading</span>
-                            <h3 class="font-serif text-xl font-semibold mb-3 group-hover:text-brand-accent transition-colors">Before You Buy Plants: Read the Site</h3>
-                            <p class="text-sm text-brand-muted leading-relaxed mb-6">
-                                Why light, exposure, existing vegetation, moisture and use come before a planting list.
-                            </p>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2">
-                            Read Post <i class="fa-solid fa-arrow-right"></i>
-                        </span>
-                    </button>
-
-                    <button type="button" onclick="openArticleModal('article2')" aria-haspopup="dialog" class="text-left border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-all hover:-translate-y-1 group">
-                        <div>
-                            <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Perth conditions</span>
-                            <h3 class="font-serif text-xl font-semibold mb-3 group-hover:text-brand-accent transition-colors">Heat, Exposure and Seasonal Water</h3>
-                            <p class="text-sm text-brand-muted leading-relaxed mb-6">
-                                A plain-language orientation to the conditions a planting system must be designed to meet.
-                            </p>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2">
-                            Read Post <i class="fa-solid fa-arrow-right"></i>
-                        </span>
-                    </button>
-
-                    <button type="button" onclick="openArticleModal('article3')" aria-haspopup="dialog" class="text-left border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-all hover:-translate-y-1 group">
-                        <div>
-                            <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Planting design</span>
-                            <h3 class="font-serif text-xl font-semibold mb-3 group-hover:text-brand-accent transition-colors">Why the Plan Comes Before the Nursery</h3>
-                            <p class="text-sm text-brand-muted leading-relaxed mb-6">
-                                How an approved planting system protects the project from impulse buying and mismatched stock.
-                            </p>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2">
-                            Read Post <i class="fa-solid fa-arrow-right"></i>
-                        </span>
-                    </button>
-
-                    <button type="button" onclick="openArticleModal('article4')" aria-haspopup="dialog" class="text-left border border-brand-border rounded-2xl p-8 bg-brand-card/30 flex flex-col justify-between hover:border-brand-accent transition-all hover:-translate-y-1 group">
-                        <div>
-                            <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Vision</span>
-                            <h3 class="font-serif text-xl font-semibold mb-3 group-hover:text-brand-accent transition-colors">Why Urban Greening Has to Begin Before 2050</h3>
-                            <p class="text-sm text-brand-muted leading-relaxed mb-6">
-                                Why future shade, healthy roots and biodiversity depend on urban greening that begins while there is still time for it to establish.
-                            </p>
-                        </div>
-                        <span class="text-xs font-semibold uppercase tracking-wider text-brand-accent flex items-center gap-2">
-                            Read Post <i class="fa-solid fa-arrow-right"></i>
-                        </span>
-                    </button>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- GARDEN SITE READING REQUEST -->
-        <section id="site-reading" class="py-24 px-6" aria-labelledby="site-reading-title">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <section id="about" class="section" aria-labelledby="about-title">
+            <div class="wrap columns">
                 <div>
-                    <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">Begin with the site</span>
-                    <h2 id="site-reading-title" class="font-serif text-3xl sm:text-5xl mb-6">Request a Garden<br>Site Reading.</h2>
-                    <p class="text-brand-muted leading-relaxed mb-8">
-                        Before a planting plan is drawn, the property must be read. This 60-minute on-property assessment examines sun path, exposure, existing vegetation and simple soil-hydration conditions so the garden’s real opportunities are understood first.
-                    </p>
-
-                    <div class="p-6 mb-8 rounded-2xl border border-brand-border bg-brand-card/60">
-                        <p class="font-serif text-2xl mb-2">AUD 495</p>
-                        <p class="text-sm text-brand-muted leading-relaxed">Includes a printed and digital Garden Conditions &amp; Planting Opportunity Report, delivered within 14 calendar days. The full Site Reading fee is credited toward a Mopani Studio planting-design service when you proceed within 90 days.</p>
-                    </div>
-
-                    <div class="space-y-6 text-sm">
-                        <div class="flex items-start gap-4">
-                            <i class="fa-solid fa-location-dot text-brand-accent mt-1"></i>
-                            <div>
-                                <strong class="block text-brand-dark">Service area</strong>
-                                <span class="text-brand-muted">Residential properties generally within one hour of Ellenbrook. A confirmed AUD 75 travel charge applies approximately 31–60 minutes away.</span>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <i class="fa-solid fa-file-lines text-brand-accent mt-1"></i>
-                            <div>
-                                <strong class="block text-brand-dark">What the request establishes</strong>
-                                <span class="text-brand-muted">Property type, authority, site evidence, safe access and whether this service can answer the present need truthfully.</span>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4">
-                            <i class="fa-solid fa-shield-halved text-brand-accent mt-1"></i>
-                            <div>
-                                <strong class="block text-brand-dark">A request is not a booking</strong>
-                                <span class="text-brand-muted">Mopani Studio reviews suitability, travel, safety and capacity before offering an appointment or requesting payment.</span>
-                            </div>
-                        </div>
-                    </div>
+                    <h2 id="about-title">A garden begins with the way you move through it.</h2>
+                    <p>I'm Jana, the founder of Mopani Studio, a residential urban-greening practice based in Ellenbrook. I start with your everyday route through the garden and work out where planting can bring shade, habitat or comfort to the places you use.</p>
                 </div>
-
-                <!-- Fillout Embed Shell: insert the published form URL in data-fillout-form-url -->
-                <div class="bg-brand-card/60 p-4 sm:p-6 rounded-2xl border border-brand-border min-h-[560px]">
-                    <div id="site-reading-form" data-fillout-form-url="https://9aywdajfmy.zite.so/" class="h-full" aria-live="polite">
-                        <div class="min-h-[510px] flex flex-col items-center justify-center text-center px-6 py-12 border border-dashed border-brand-border rounded-xl bg-brand-main/50">
-                            <span class="w-12 h-12 rounded-full bg-brand-accent text-white flex items-center justify-center mb-5" aria-hidden="true">
-                                <i class="fa-solid fa-seedling"></i>
-                            </span>
-                            <p class="text-xs font-semibold uppercase tracking-widest text-brand-accent mb-3">Request form being connected</p>
-                            <h3 class="font-serif text-2xl mb-4">The Site Reading intake is nearly ready.</h3>
-                            <p class="text-sm text-brand-muted leading-relaxed max-w-md mb-7">The form will ask for 3–6 recent property photographs and the minimum information needed to perform a responsible suitability review.</p>
-                            <a href="mailto:hello@mopanistudio.com?subject=Garden%20Site%20Reading%20request" class="px-6 py-3 bg-brand-dark text-brand-main text-xs font-semibold tracking-wider uppercase rounded-full hover:bg-brand-accent transition-colors">
-                                Email Mopani Studio
-                            </a>
-                            <p class="text-xs text-brand-muted mt-6">No booking is created and no payment is requested by email.</p>
-                        </div>
-                    </div>
-                    <p class="text-[11px] leading-relaxed text-brand-muted mt-4 px-1">By submitting the live request form, you will confirm that you have read the <a href="privacy.html" class="underline hover:text-brand-accent">privacy notice</a> and consent to Mopani Studio using the information and site evidence to assess the request.</p>
+                <div id="services">
+                    <h3>Read, design and establish</h3>
+                    <p id="method">A Garden Site Reading helps you understand your site and choose where to begin. Planting design and hands-on establishment are separate services, discussed when they suit the garden and your goals.</p>
+                    <a href="mailto:hello@mopanistudio.com">Contact Mopani Studio</a>
                 </div>
             </div>
         </section>
-
-        <!-- ABOUT -->
-        <section id="about" class="py-24 px-6 border-t border-brand-border bg-brand-card/30">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-                <div>
-                    <span class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-3">About Mopani Studio</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl mb-6">A landscape practice for the living part of the property.</h2>
-                </div>
-                <div class="space-y-5 text-brand-muted leading-relaxed">
-                    <p>Mopani Studio is a residential softscape urban-greening design and planting-establishment studio based near Ellenbrook, Western Australia.</p>
-                    <p>The practice exists to help residents understand the conditions already acting upon their garden, then make deliberate planting decisions that can be maintained in real life. Education is not an add-on: the client learns how the property, planting system and selected species work together.</p>
-                    <p>The studio’s method is independently aligned with the practical direction of urban-greening policy. This describes a shared field of work; it does not imply government appointment, accreditation, partnership or endorsement.</p>
-                    <a href="garden-site-reading/" class="inline-flex mt-3 px-6 py-3 border border-brand-dark/30 text-brand-dark text-xs font-semibold tracking-wider uppercase rounded-full hover:bg-brand-main">Begin with the site</a>
+        <section id="journal" class="section" aria-labelledby="journal-title">
+            <div class="wrap">
+                <div class="journal">
+                    <h2 id="journal-title">From the garden journal</h2>
+            <details><summary>Before You Buy Plants: Read the Site</summary><div><p>A planting list is not yet a planting system.</p>
+                    <hr>
+                    <p>Before species are chosen, the property needs to be understood as a set of conditions: where light moves, where exposure is strongest, what vegetation is already present, how moisture behaves and how the resident needs to use the space.</p>
+                    <h3>Observation creates the brief</h3>
+                    <p>The Garden Site Reading does not pretend to be a complete design session. It creates the evidence and orientation needed to decide whether self-directed planting, further investigation or a designed planting system is the responsible next step.</p></div></details>
+            <details><summary>Heat, Exposure and Seasonal Water</summary><div><p>The same plant can meet a different reality from one part of a property to another.</p>
+                    <hr>
+                    <p>A useful garden record separates broad regional climate from the local conditions created by walls, paving, shade, wind, existing roots and patterns of watering. Those differences influence placement and establishment.</p>
+                    <h3>Read first; prescribe later</h3>
+                    <p>Mopani Studio records visible conditions and simple hydration observations. It does not replace laboratory soil testing, irrigation advice or specialist diagnosis where those are genuinely required.</p></div></details>
+            <details><summary>Why the Plan Comes Before the Nursery</summary><div><p>The nursery is a place of selection, not the place where the garden should first be designed.</p>
+                    <hr>
+                    <p>An approved planting system gives each purchase a reason: position, mature role, quantity and relationship to the rest of the garden. It also gives the client a standard against which available stock can be assessed.</p>
+                    <h3>Participation with structure</h3>
+                    <p>The client joins the nursery session to understand and select from the approved plan. Their involvement builds practical knowledge without turning the design process into an improvised shopping trip.</p></div></details>
+            <details><summary>Why Urban Greening Has to Begin Before 2050</summary><div><p>The greenery Perth and Peel will need in 2050 has to begin establishing before then.</p>
+                    <hr>
+                    <p>Homes, roads and hard surfaces can be added faster than trees can spread canopy, roots can establish and habitat can return. This makes time one of urban greening’s most important resources.</p>
+                    <blockquote>The built city grows quickly. Trees, roots and habitat need time. Perth and Peel have 24 growing years before 2050—and the choice to use them begins now.</blockquote>
+                    <p>The six-part 2050 story explains how population growth, heat, water and human health make urban greening a practical priority now—not a project to leave until conditions become harder.</p></div></details>
                 </div>
             </div>
         </section>
-
     </main>
-
-    <!-- FOOTER -->
-    <footer class="py-12 px-6 border-t border-brand-border text-xs text-brand-muted">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-                © 2026 Mopani Studio. Residential urban greening, planting design and softscape establishment.
-            </div>
-            <div class="flex items-center gap-6">
-                <a href="#method" class="hover:underline">Method</a>
-                <a href="#journal" class="hover:underline">Journal</a>
-                <a href="#about" class="hover:underline">About</a>
-                <a href="privacy.html" class="hover:underline">Privacy</a>
-            </div>
+    <footer class="footer">
+        <div class="wrap">
+            <span>Mopani Studio · Ellenbrook, Western Australia</span>
+            <nav class="nav" aria-label="Footer"><a href="#pilot">Garden pilot</a><a href="privacy.html">Privacy</a></nav>
         </div>
     </footer>
-
-    <!-- INTERACTIVE ARTICLE POPUP MODAL -->
-    <div id="article-modal" class="fixed inset-0 z-50 hidden bg-brand-dark/70 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
-        <div class="bg-brand-main w-full max-w-3xl rounded-3xl border border-brand-border shadow-2xl overflow-hidden my-auto max-h-[85vh] flex flex-col relative animate-fade-in">
-            <!-- Modal Header -->
-            <div class="p-6 sm:p-8 border-b border-brand-border bg-brand-card/40 flex items-start justify-between gap-4 sticky top-0 z-10 backdrop-blur-md">
-                <div>
-                    <span id="modal-category" class="text-xs font-semibold uppercase tracking-widest text-brand-accent block mb-2">Category</span>
-                    <h2 id="modal-title" class="font-serif text-2xl sm:text-3xl font-semibold leading-snug">Article Title</h2>
-                </div>
-                <button id="modal-close" type="button" onclick="closeArticleModal()" class="w-10 h-10 rounded-full border border-brand-border flex items-center justify-center hover:bg-brand-accent hover:text-white transition-colors shrink-0" aria-label="Close article">
-                    <i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i>
-                </button>
-            </div>
-            <!-- Modal Scrollable Content -->
-            <div id="modal-body" class="p-6 sm:p-10 overflow-y-auto text-brand-dark text-sm sm:text-base leading-relaxed space-y-6">
-                <!-- Article text inserted dynamically -->
-            </div>
-            <!-- Modal Footer -->
-            <div class="p-6 border-t border-brand-border bg-brand-card/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-muted">
-                <span>mopani studio · Urban Greening Knowledge Base</span>
-                <a href="garden-site-reading/" onclick="closeArticleModal()" class="px-5 py-2.5 bg-brand-accent text-white font-semibold uppercase tracking-wider rounded-full hover:bg-brand-accentHover transition-colors">
-                    Request a Site Reading
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT FOR INTERACTIVITY -->
-    <script>
-        /* Article previews. Full articles will graduate to standalone routes. */
-        const articlesData = {
-            article1: {
-                category: "Site reading",
-                title: "Before You Buy Plants: Read the Site",
-                content: `
-                    <p class="text-lg font-serif italic text-brand-muted">A planting list is not yet a planting system.</p>
-                    <hr class="border-brand-border">
-                    <p>Before species are chosen, the property needs to be understood as a set of conditions: where light moves, where exposure is strongest, what vegetation is already present, how moisture behaves and how the resident needs to use the space.</p>
-                    <h3 class="font-serif text-xl font-semibold text-brand-dark mt-6">Observation creates the brief</h3>
-                    <p>The Garden Site Reading does not pretend to be a complete design session. It creates the evidence and orientation needed to decide whether self-directed planting, further investigation or a designed planting system is the responsible next step.</p>
-                `
-            },
-            article2: {
-                category: "Perth conditions",
-                title: "Heat, Exposure and Seasonal Water",
-                content: `
-                    <p class="text-lg font-serif italic text-brand-muted">The same plant can meet a different reality from one part of a property to another.</p>
-                    <hr class="border-brand-border">
-                    <p>A useful garden record separates broad regional climate from the local conditions created by walls, paving, shade, wind, existing roots and patterns of watering. Those differences influence placement and establishment.</p>
-                    <h3 class="font-serif text-xl font-semibold text-brand-dark mt-6">Read first; prescribe later</h3>
-                    <p>Mopani Studio records visible conditions and simple hydration observations. It does not replace laboratory soil testing, irrigation advice or specialist diagnosis where those are genuinely required.</p>
-                `
-            },
-            article3: {
-                category: "Planting design",
-                title: "Why the Plan Comes Before the Nursery",
-                content: `
-                    <p class="text-lg font-serif italic text-brand-muted">The nursery is a place of selection, not the place where the garden should first be designed.</p>
-                    <hr class="border-brand-border">
-                    <p>An approved planting system gives each purchase a reason: position, mature role, quantity and relationship to the rest of the garden. It also gives the client a standard against which available stock can be assessed.</p>
-                    <h3 class="font-serif text-xl font-semibold text-brand-dark mt-6">Participation with structure</h3>
-                    <p>The client joins the nursery session to understand and select from the approved plan. Their involvement builds practical knowledge without turning the design process into an improvised shopping trip.</p>
-                `
-            },
-            article4: {
-                category: "Vision",
-                title: "Why Urban Greening Has to Begin Before 2050",
-                content: `
-                    <p class="text-lg font-serif italic text-brand-muted">The greenery Perth and Peel will need in 2050 has to begin establishing before then.</p>
-                    <hr class="border-brand-border">
-                    <p>Homes, roads and hard surfaces can be added faster than trees can spread canopy, roots can establish and habitat can return. This makes time one of urban greening’s most important resources.</p>
-                    <blockquote class="border-l-4 border-brand-accent pl-5 font-serif text-xl italic">The built city grows quickly. Trees, roots and habitat need time. Perth and Peel have 24 growing years before 2050—and the choice to use them begins now.</blockquote>
-                    <p>The six-part 2050 story explains how population growth, heat, water and human health make urban greening a practical priority now—not a project to leave until conditions become harder.</p>
-                `
-            }
-        };
-
-        /* Modal Functions */
-        let articleTrigger = null;
-
-        function openArticleModal(articleKey) {
-            const article = articlesData[articleKey];
-            if (!article) return;
-
-            articleTrigger = document.activeElement;
-
-            document.getElementById('modal-category').innerText = article.category;
-            document.getElementById('modal-title').innerText = article.title;
-            document.getElementById('modal-body').innerHTML = article.content;
-
-            const modal = document.getElementById('article-modal');
-            modal.classList.remove('hidden');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            document.getElementById('modal-close').focus();
-        }
-
-        function closeArticleModal() {
-            const modal = document.getElementById('article-modal');
-            modal.classList.add('hidden');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = 'auto';
-            if (articleTrigger) articleTrigger.focus();
-        }
-
-        /* Accordion Toggle Function */
-        function toggleAccordion(id) {
-            const content = document.getElementById(id);
-            const icon = document.getElementById('icon-' + id);
-            const button = document.querySelector(`[aria-controls="${id}"]`);
-            const isOpen = content.classList.contains('open');
-
-            document.querySelectorAll('.accordion-content').forEach(el => el.classList.remove('open'));
-            document.querySelectorAll('[id^="icon-step"]').forEach(el => el.classList.remove('rotate-45'));
-            document.querySelectorAll('[aria-controls^="step"]').forEach(el => el.setAttribute('aria-expanded', 'false'));
-            
-            if (!isOpen) {
-                content.classList.add('open');
-                icon.classList.add('rotate-45');
-                button.setAttribute('aria-expanded', 'true');
-            }
-        }
-
-        /* 2050 urban greening evidence story.
-           Progressive enhancement keeps every chapter readable if JavaScript is unavailable. */
-        function mountEvidenceStory() {
-            const story = document.getElementById('vision');
-            if (!story) return;
-
-            const chapters = Array.from(story.querySelectorAll('[data-story-chapter]'));
-            const tabs = Array.from(story.querySelectorAll('[data-story-target]'));
-            const previous = document.getElementById('story-prev');
-            const next = document.getElementById('story-next');
-            const count = document.getElementById('story-count');
-            const announcement = story.querySelector('.story-announcement');
-            const storyIndex = story.querySelector('.story-index');
-            const storyIndexShell = story.querySelector('.story-index-shell');
-            const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const chapterNames = ['Growth', 'Heat', 'Water', 'People', 'Time', 'Action'];
-            let activeIndex = 0;
-
-            if (!chapters.length || chapters.length !== tabs.length || !previous || !next || !count || !storyIndex || !storyIndexShell) return;
-
-            story.classList.add('story-ready');
-
-            function updateIndexCue() {
-                const atEnd = storyIndex.scrollLeft + storyIndex.clientWidth >= storyIndex.scrollWidth - 2;
-                storyIndexShell.classList.toggle('at-end', atEnd);
-            }
-
-            function showChapter(index, options = {}) {
-                const safeIndex = Math.max(0, Math.min(index, chapters.length - 1));
-                activeIndex = safeIndex;
-
-                chapters.forEach((chapter, chapterIndex) => {
-                    const active = chapterIndex === activeIndex;
-                    chapter.hidden = !active;
-                    chapter.setAttribute('aria-hidden', String(!active));
-                });
-
-                tabs.forEach((tab, tabIndex) => {
-                    const active = tabIndex === activeIndex;
-                    tab.setAttribute('aria-selected', String(active));
-                    tab.tabIndex = active ? 0 : -1;
-                });
-
-                previous.disabled = activeIndex === 0;
-                next.disabled = activeIndex === chapters.length - 1;
-                count.textContent = `${String(activeIndex + 1).padStart(2, '0')} / ${String(chapters.length).padStart(2, '0')} · ${chapterNames[activeIndex]}`;
-                announcement.textContent = `Chapter ${activeIndex + 1} of ${chapters.length}: ${chapterNames[activeIndex]}`;
-
-                if (options.focusTab) tabs[activeIndex].focus();
-                if (options.revealTab) {
-                    tabs[activeIndex].scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
-                }
-            }
-
-            tabs.forEach((tab, index) => {
-                tab.addEventListener('click', () => showChapter(index));
-                tab.addEventListener('keydown', event => {
-                    if (event.key === 'ArrowRight') {
-                        event.preventDefault();
-                        showChapter((index + 1) % tabs.length, { focusTab: true });
-                    }
-                    if (event.key === 'ArrowLeft') {
-                        event.preventDefault();
-                        showChapter((index - 1 + tabs.length) % tabs.length, { focusTab: true });
-                    }
-                    if (event.key === 'Home') {
-                        event.preventDefault();
-                        showChapter(0, { focusTab: true });
-                    }
-                    if (event.key === 'End') {
-                        event.preventDefault();
-                        showChapter(tabs.length - 1, { focusTab: true });
-                    }
-                });
-            });
-
-            storyIndex.addEventListener('scroll', updateIndexCue, { passive: true });
-            window.addEventListener('resize', updateIndexCue);
-            previous.addEventListener('click', () => showChapter(activeIndex - 1, { revealTab: true }));
-            next.addEventListener('click', () => showChapter(activeIndex + 1, { revealTab: true }));
-            showChapter(0);
-            updateIndexCue();
-        }
-
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            const isOpen = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-            mobileMenuButton.setAttribute('aria-expanded', String(!isOpen));
-            mobileMenuButton.setAttribute('aria-label', isOpen ? 'Open navigation' : 'Close navigation');
-            mobileMenu.classList.toggle('hidden', isOpen);
-        });
-
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenuButton.setAttribute('aria-expanded', 'false');
-                mobileMenuButton.setAttribute('aria-label', 'Open navigation');
-            });
-        });
-
-        document.addEventListener('keydown', event => {
-            if (event.key === 'Escape' && document.getElementById('article-modal').getAttribute('aria-hidden') === 'false') {
-                closeArticleModal();
-            }
-        });
-
-        document.getElementById('article-modal').addEventListener('click', event => {
-            if (event.target.id === 'article-modal') closeArticleModal();
-        });
-
-        /* Fillout embed activation.
-           Replace the empty data-fillout-form-url value with the published Fillout URL.
-           Until then, the truthful pre-launch state remains visible. */
-        function mountSiteReadingForm() {
-            const host = document.getElementById('site-reading-form');
-            if (!host) return;
-
-            const formUrl = (host.dataset.filloutFormUrl || '').trim();
-            if (!formUrl) return;
-
-            let parsedUrl;
-            try {
-                parsedUrl = new URL(formUrl);
-            } catch (error) {
-                console.error('Invalid Site Reading form URL.');
-                return;
-            }
-
-            const allowedHosts = new Set(['9aywdajfmy.zite.so']);
-            if (parsedUrl.protocol !== 'https:' || !allowedHosts.has(parsedUrl.hostname)) {
-                console.error('Unapproved Site Reading form host.');
-                return;
-            }
-
-            const iframe = document.createElement('iframe');
-            iframe.src = parsedUrl.toString();
-            iframe.title = 'Request a Mopani Studio Garden Site Reading';
-            iframe.loading = 'lazy';
-            iframe.className = 'w-full min-h-[1080px] rounded-xl bg-white';
-            iframe.style.border = '0';
-            iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-            host.replaceChildren(iframe);
-        }
-
-        mountEvidenceStory();
-        mountSiteReadingForm();
-    </script>
 </body>
 </html>
