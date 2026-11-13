@@ -31,6 +31,6 @@ form.addEventListener('submit', (event) => {
 
     draft.value = `To: hello@mopanistudio.com\nSubject: ${subject}\n\n${message}`;
     copy.hidden = false;
-    status.textContent = 'Your draft is ready. Send it from your email app to send your application.';
+    status.textContent = 'Your draft is ready. Send it from your email app to register your interest.';
     window.location.href = `mailto:hello@mopanistudio.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 });
