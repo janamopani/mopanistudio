@@ -24,8 +24,15 @@ p:last-child { margin-bottom: 0; }
 main:focus { outline: none; }
 section { scroll-margin-top: 1.25rem; }
 .wrap { width: min(var(--measure), calc(100% - 2.5rem)); margin-inline: auto; }
-.skip { position: absolute; top: .75rem; left: 1rem; padding: .55rem .8rem; background: var(--panel); transform: translateY(-200%); }
+.skip { position: absolute; top: .75rem; left: 1rem; z-index: 1; padding: .55rem .8rem; background: var(--panel); transform: translateY(-200%); }
 .skip:focus { transform: none; }
+.country-acknowledgement {
+    background: var(--forest);
+    color: var(--light);
+    padding-block: .65rem;
+    font-size: .8rem;
+    line-height: 1.5;
+}
 .header { border-bottom: 1px solid var(--line); }
 .header .wrap, .footer .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; padding-block: 1rem; }
 .brand { color: var(--ink); font-weight: 700; letter-spacing: .12em; text-transform: uppercase; text-decoration: none; }
