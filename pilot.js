@@ -37,29 +37,40 @@ form.addEventListener('submit', (event) => {
 
 const countdown = document.querySelector('#countdown');
 if (countdown) {
-    const deadline = Date.parse(document.querySelector('.countdown time').dateTime);
-    const units = [
-        ['days', 86400],
-        ['hours', 3600],
-        ['minutes', 60],
-        ['seconds', 1],
-    ].map(([name, length]) => [document.querySelector(`#countdown-${name}`), length]);
+    const clock = countdown.querySelector('time');
+    const deadline = Date.parse(clock.dateTime);
+    const perthOffset = 8 * 60 * 60 * 1000;
+    const deadlineYear = new Date(deadline + perthOffset).getUTCFullYear();
 
     function renderCountdown() {
-        let seconds = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
-        for (const [element, length] of units) {
-            const value = String(Math.floor(seconds / length));
-            element.textContent = length === 86400 ? value : value.padStart(2, '0');
-            seconds %= length;
-        }
+        const now = Date.now();
+        countdown.hidden = now >= deadline;
+        if (countdown.hidden) return;
+
+        const perthNow = new Date(now + perthOffset);
+        const years = deadlineYear - perthNow.getUTCFullYear() -
+            (now + perthOffset === Date.UTC(perthNow.getUTCFullYear(), 0, 1) ? 0 : 1);
+        const anniversary = new Date(perthNow);
+        const month = anniversary.getUTCMonth();
+        anniversary.setUTCFullYear(perthNow.getUTCFullYear() + years);
+        if (anniversary.getUTCMonth() !== month) anniversary.setUTCDate(0);
+        const minutes = Math.ceil((deadline + perthOffset - anniversary.getTime()) / 60000);
+        const values = [
+            [years, 'year'],
+            [Math.floor(minutes / 1440), 'day'],
+            [Math.floor(minutes / 60) % 24, 'hour'],
+            [minutes % 60, 'minute'],
+        ];
+        clock.textContent = values.filter(([value]) => value > 0)
+            .map(([value, name]) => `${value} ${name}${value === 1 ? '' : 's'}`)
+            .join(', ');
     }
 
     renderCountdown();
-    countdown.hidden = false;
-    if (Date.now() < deadline) {
+    if (!countdown.hidden) {
         const interval = window.setInterval(() => {
             renderCountdown();
-            if (Date.now() >= deadline) window.clearInterval(interval);
+            if (countdown.hidden) window.clearInterval(interval);
         }, 1000);
     }
 }
