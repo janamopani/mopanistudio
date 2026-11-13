@@ -85,8 +85,4 @@ section { scroll-margin-top: 1.25rem; }
 .policy h2 { font-size: clamp(1.45rem, 3vw, 2rem); margin-top: 1.55em; }
 .policy li + li { margin-top: .35rem; }
 
-.countdown-inline { font-variant-numeric: tabular-nums; }
-.vision-essay { max-width: 46rem; }
-.vision-essay p { line-height: 1.75; }
-.vision-essay h2:not(:first-child) { margin-top: 1.2em; }
-.vision .button { margin-top: .3rem; }
+.pilot .form { max-width: 36rem; }
