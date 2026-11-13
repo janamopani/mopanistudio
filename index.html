@@ -33,12 +33,21 @@
             <div class="wrap">
                 <h1 id="intro-title">Step into your urban greening era</h1>
                 <p class="pilot-subheading"><strong>Free one-hour garden consultations for Ellenbrook residents</strong></p>
-                <p>Dear Ellenbrook neighbours,</p>
+                <div class="countdown">
+                    <p>Countdown to <time datetime="2050-01-01T00:00:00+08:00">1 January 2050, Perth time</time></p>
+                    <div class="countdown-values" id="countdown" aria-hidden="true" hidden>
+                        <span><strong id="countdown-days">0</strong> days</span>
+                        <span><strong id="countdown-hours">00</strong> hours</span>
+                        <span><strong id="countdown-minutes">00</strong> minutes</span>
+                        <span><strong id="countdown-seconds">00</strong> seconds</span>
+                    </div>
+                </div>
+                <p>Dear residents of Ellenbrook,</p>
                 <p>I’m Jana, a graduate landscape designer and the founder of Mopani Studio. My ambition is to make Perth the greenest city on the planet by 2050. I’m starting in my hometown, right here in Ellenbrook.</p>
                 <p>I want our children to grow up with more shade on the streets they walk and more life in the gardens around them. The choices we make at home now will help shape the Whadjuk (Perth) and Binjareb (Peel) they grow into.</p>
                 <p>That’s why I’m inviting Ellenbrook residents to help test the <strong>Garden Site Reading</strong>, my on-site garden consultation. I’ll walk through your outdoor space with you, see how you use it, look at where sun and shade fall, and work out where planting could make a difference. If you take part, you’ll receive a free digital report with practical next steps once I’ve finalised the pilot method.</p>
                 <p>I’m looking for a mix of homes, from bare blocks and small courtyards to established gardens. By seeing what’s possible in different spaces and hearing what people have the time, money and confidence to care for, I can build a service that helps more residents get started. You can take part even if you’ve never gardened and have only one corner you’d like to change.</p>
-                <a class="button" href="#apply">Apply for a site reading</a>
+                <a class="button" href="#apply">Apply now</a>
             </div>
         </section>
         <section id="apply" class="section pilot" aria-labelledby="pilot-title">
@@ -51,8 +60,8 @@
                     <p>I’ll explain what I observed and suggest where you could start, taking your budget and the time you can spend on care into account. I’ll share the expected timing before you agree to take part. The digital report is free once the pilot method is finalised. A printed copy is optional, with the cost agreed before ordering.</p>
                 </div>
                 <div class="form">
-                    <h3>Apply for a site reading</h3>
-                    <p id="email-help" class="note">Fill in the form, then send the email draft it opens to apply. I’ll review your application and reply by email. If selected, we’ll arrange your visit separately.</p>
+                    <h3>Apply now</h3>
+                    <p id="email-help" class="note">Select Apply now to open an email draft, then send the draft to complete your application. I’ll review your application and reply by email. If selected, we’ll arrange your visit separately.</p>
                     <p id="email-fallback" class="note"><a href="mailto:hello@mopanistudio.com?subject=Ellenbrook%20garden%20pilot">Email hello@mopanistudio.com directly</a> with your name, suburb, garden type and what you’d like to understand about it.</p>
                     <form id="pilot-form" aria-describedby="email-help" hidden>
                         <div class="field">
@@ -83,7 +92,7 @@
                             <label class="note" for="pilot-contact">Mopani Studio may use this information to contact me about the pilot.</label>
                         </div>
                         <div class="actions">
-                            <button type="submit" class="button">Open email draft</button>
+                            <button type="submit" class="button">Apply now</button>
                             <a class="note" href="privacy.html">Privacy notice</a>
                         </div>
                         <p class="form-feedback note" id="draft-status" role="status"></p>
@@ -97,18 +106,18 @@
         </section>
         <section id="vision" class="section vision" aria-labelledby="vision-title">
             <div class="wrap">
-                <p class="eyebrow">2050 Vision</p>
-                <h2 id="vision-title">Give Perth’s gardens time to grow.</h2>
-                <p class="lead">Roads and roofs can be built quickly. Shade, healthy soil and habitat take seasons. Mopani Studio’s vision for 2050 is a Perth and Peel where more households know how to grow and care for the greenery their neighbourhoods need.</p>
-                <div class="vision-grid">
-                    <article><h3>Make room for greenery</h3><p>As neighbourhoods grow, space for trees and smaller plantings needs to be considered alongside buildings, paths and services.</p></article>
-                    <article><h3>Put shade where people use it</h3><p>Start with the places you walk, pause or sit. Look at where shade falls in the afternoon and how that changes with the season.</p></article>
-                    <article><h3>Plant for the water we have</h3><p>South-west Australia’s April–October rainfall has declined by about 16% since 1970. Choose plants that suit the site and plan how you’ll water them while they establish.</p></article>
-                    <article><h3>Grow habitat at home</h3><p>Keep useful existing vegetation where it suits the site. Add layers of planting and aim for flowers across different seasons.</p></article>
-                    <article><h3>Start while there’s time</h3><p>WA aims to plant one million trees by 2035 and reach 30% tree canopy cover in Perth by 2040. What we plant and keep alive today has time to mature.</p></article>
-                    <article><h3>Take one useful step</h3><p>Start with one exposed path, one bare bed or one place you already enjoy. Choose a change your household can care for through its first summer.</p></article>
-                </div>
-                <p class="sources">Sources: <a href="https://www.csiro.au/en/research/environmental-impacts/climate-change/state-of-the-climate/australias-changing-climate">Bureau of Meteorology and CSIRO, State of the Climate</a> · <a href="https://www.wa.gov.au/organisation/department-of-planning-lands-and-heritage/urban-greening-strategy">WA Urban Greening Strategy</a></p>
+                <article class="vision-essay">
+                    <h2 id="vision-title">It’s our responsibility to re-establish nature.</h2>
+                    <p>We’ve built homes, streets and entire suburbs on land where native plants and animals once lived. Much of that habitat was cleared to make room for us. Living in a developed city gives us a responsibility to make room for nature again, starting with the places we use and care for every day.</p>
+                    <p>Stop and look around. Where does a tree already give shade? Where is there room for living cover? If we leave that work for the next generation because we don’t like gardening, we teach them that care for nature is somebody else’s duty. They’ll inherit the consequences of that lesson along with the city itself.</p>
+                    <p>A greener city means more shade where people walk, more habitat for wildlife and more places where we can spend time outside. You can begin with the space, budget and knowledge you have. Keep what’s already doing good work, and make room for plants that suit your sun, soil and water. I want to help you work out what that looks like at home.</p>
+                    <h2><em>The race has already begun,</em></h2>
+                    <p>In 2024, the WA Local Government Association reported that Perth had the lowest tree canopy cover among Australia’s capital cities. The State is planning for about 3.5 million residents across Perth and Peel by around 2050. Compared with about 2.46 million in 2025, that’s just over one million more neighbours under the planning scenario. <a href="https://walga.asn.au/media-and-resources/media-releases/local-governments-taking-the-lead-to-protect-mature-trees-on-private-land">WALGA’s canopy comparison</a> · <a href="https://www.wa.gov.au/government/document-collections/perth-and-peel35million-health-check">WA’s population and planning figures</a></p>
+                    <p>The scale of development is already familiar. From 1999 to 2018, construction across metropolitan Perth, Peel and Greater Bunbury used an average of 900 hectares of land zoned for urban development each year, the equivalent of about 2.5 hectares a day over that period. Development is continuing. We have a say in how green the places we build and live in become. <a href="https://www.wa.gov.au/system/files/2021-07/LSD-Urban-Growth-Monitor-11-report.pdf">WA Urban Growth Monitor, January 2020</a></p>
+                    <p>At Mopani Studio, I’m building a service that helps residents make those choices, whatever their budget or plant knowledge. The Ellenbrook pilot is where I’m starting. Each garden helps me learn what makes urban greening practical for the people who live there.</p>
+                    <p><strong>Step into your urban greening era. Come on, Perth, let’s give them green!</strong></p>
+                    <a class="button" href="#apply">Apply now</a>
+                </article>
             </div>
         </section>
         <section id="about" class="section" aria-labelledby="about-title">
