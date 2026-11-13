@@ -37,6 +37,7 @@ section { scroll-margin-top: 1.25rem; }
 .hero, .section { padding-block: clamp(3rem, 7vw, 6rem); }
 .hero p { max-width: 36rem; font-size: clamp(1rem, 2.2vw, 1.16rem); }
 .eyebrow { color: var(--accent); margin-bottom: 1rem; font-size: .8rem !important; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.hero .pilot-subheading { margin-bottom: 1.75rem; color: var(--accent); }
 .hero .button { margin-top: .55rem; }
 .section { border-top: 1px solid var(--line); }
 .lead { max-width: 42rem; color: var(--muted); }
