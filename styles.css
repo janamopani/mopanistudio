@@ -62,12 +62,6 @@ section { scroll-margin-top: 1.25rem; }
 .vision-grid article { border-top: 1px solid #a4a99d; padding-top: 1rem; }
 .vision-grid p { font-size: .92rem; }
 .sources { margin-top: 1.75rem; font-size: .87rem; }
-.journal { max-width: 50rem; }
-.journal details { border-top: 1px solid var(--line); padding-block: .75rem; }
-.journal details:last-child { border-bottom: 1px solid var(--line); }
-.journal summary { cursor: pointer; font-weight: 600; }
-.journal details div { margin-top: .8rem; color: var(--muted); }
-.journal details h3 { font-size: 1.15rem; }
 .footer { border-top: 1px solid var(--line); font-size: .87rem; }
 .legacy { padding-block: clamp(3rem, 8vw, 7rem); }
 .legacy h1 { font-size: clamp(2.7rem, 6vw, 4.8rem); }
@@ -83,3 +77,31 @@ section { scroll-margin-top: 1.25rem; }
 .policy { max-width: 48rem; }
 .policy h2 { font-size: clamp(1.45rem, 3vw, 2rem); margin-top: 1.55em; }
 .policy li + li { margin-top: .35rem; }
+.journal-grid, .action-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2rem; }
+.journal-grid article { border-top: 1px solid var(--line); padding-top: 1rem; }
+.journal-grid a { color: var(--ink); }
+.journal-grid p { color: var(--muted); }
+.resources { background: var(--panel); }
+.action-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; margin: 1rem 0; padding: 0; }
+.action-grid li { padding: .9rem 1rem; border-top: .22rem solid var(--accent); background: var(--paper); }
+.action-grid strong, .action-grid span { display: block; }
+.action-grid span { font-size: .92rem; margin-top: .35rem; }
+.resource-links { display: flex; flex-wrap: wrap; gap: .4rem 1.3rem; list-style: none; padding: 0; font-size: .88rem; }
+.journal-article { max-width: 50rem; margin-inline: auto; padding-block: clamp(2.75rem, 6vw, 5rem); }
+.article-heading { padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); margin-bottom: 2rem; }
+.article-heading h1 { font-size: clamp(2.65rem, 6vw, 4.75rem); }
+.article-heading .lead { font-size: 1.15rem; }
+.article-body { max-width: 43rem; }
+.article-body h2 { font-size: clamp(1.7rem, 3.6vw, 2.45rem); margin-top: 1.55em; }
+.article-body p { font-size: 1.04rem; line-height: 1.78; }
+.article-footer { border-top: 1px solid var(--line); margin-top: 2.75rem; padding-top: 1rem; display: flex; gap: .65rem 1.4rem; flex-wrap: wrap; }
+.climate-gallery { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.2rem; margin: 1.75rem 0; align-items: start; }
+.climate-gallery figure { margin: 0; }
+.climate-gallery img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: contain; background: #e6e1d5; }
+.climate-gallery figcaption { margin-top: .45rem; color: var(--muted); font-size: .8rem; }
+@media (max-width: 39rem) {
+    .journal-grid, .action-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 27rem) {
+    .climate-gallery { grid-template-columns: 1fr; }
+}
