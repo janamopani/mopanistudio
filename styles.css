@@ -85,10 +85,7 @@ section { scroll-margin-top: 1.25rem; }
 .policy h2 { font-size: clamp(1.45rem, 3vw, 2rem); margin-top: 1.55em; }
 .policy li + li { margin-top: .35rem; }
 
-.countdown { margin-bottom: 1.75rem; }
-.hero .countdown p { margin-bottom: .35rem; font-size: .88rem; color: var(--muted); }
-.countdown-values { display: flex; flex-wrap: wrap; gap: .2rem .85rem; font-variant-numeric: tabular-nums; }
-.countdown-values strong { color: var(--accent); }
+.countdown-inline { font-variant-numeric: tabular-nums; }
 .vision-essay { max-width: 46rem; }
 .vision-essay p { line-height: 1.75; }
 .vision-essay h2:not(:first-child) { margin-top: 1.2em; }
