@@ -31,6 +31,35 @@ form.addEventListener('submit', (event) => {
 
     draft.value = `To: hello@mopanistudio.com\nSubject: ${subject}\n\n${message}`;
     copy.hidden = false;
-    status.textContent = 'Your draft is ready. Send it from your email app to register your interest.';
+    status.textContent = 'Your draft is ready. Send it from your email app to send your application.';
     window.location.href = `mailto:hello@mopanistudio.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 });
+
+const countdown = document.querySelector('#countdown');
+if (countdown) {
+    const deadline = Date.parse(document.querySelector('.countdown time').dateTime);
+    const units = [
+        ['days', 86400],
+        ['hours', 3600],
+        ['minutes', 60],
+        ['seconds', 1],
+    ].map(([name, length]) => [document.querySelector(`#countdown-${name}`), length]);
+
+    function renderCountdown() {
+        let seconds = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+        for (const [element, length] of units) {
+            const value = String(Math.floor(seconds / length));
+            element.textContent = length === 86400 ? value : value.padStart(2, '0');
+            seconds %= length;
+        }
+    }
+
+    renderCountdown();
+    countdown.hidden = false;
+    if (Date.now() < deadline) {
+        const interval = window.setInterval(() => {
+            renderCountdown();
+            if (Date.now() >= deadline) window.clearInterval(interval);
+        }, 1000);
+    }
+}
